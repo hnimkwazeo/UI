@@ -1,0 +1,40 @@
+.articleCard {
+    border-radius: 12px;
+    border: 1px solid var(--ant-border-color-split, #f0f0f0);
+    transition: all 0.3s ease;
+    height: 100%;
+    padding: 15px !important;
+    box-shadow: var(--ant-box-shadow-secondary, 0 2px 2px rgba(0, 0, 0, 0.1));
+    position: relative;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.cardImage {
+    object-fit: cover;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cardTitle {
+    color: var(--ant-text-color, #000);
+    margin-bottom: 0px !important;
+    margin-top: 5px !important;
+}
+
+.cardDesc {
+    color: var(--ant-text-color-secondary, #292929);
+    font-size: 1.4rem;
+    margin-bottom: 20px !important;
+}
+
+.cardTime {
+    color: var(--ant-text-color-secondary, #9c9c9c);
+    font-size: 1.2rem;
+    text-align: right;
+    position: absolute;
+    bottom: 0px;
+    right: 15px;
+}

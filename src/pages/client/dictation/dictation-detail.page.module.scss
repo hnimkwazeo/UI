@@ -1,0 +1,60 @@
+.pageContainer {
+    height: 100%;
+}
+
+.pageTitle {
+    text-align: center;
+}
+
+.backButton {}
+
+.tabContainer {
+    padding: 0 200px;
+}
+
+.practiceContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.audioControls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* XL*/
+@media only screen and (max-width: 1599.98px) {}
+
+/* LG*/
+@media only screen and (max-width: 1199.98px) {
+    .tabContainer {
+        padding: 0 100px;
+    }
+}
+
+/* MD*/
+@media only screen and (max-width: 991.98px) {
+    .pageContainer {
+        min-height: calc(100vh - 65px);
+        border-radius: 0 !important;
+        border: none ! important;
+    }
+
+}
+
+/* SM*/
+@media only screen and (max-width: 767.98px) {
+    .tabContainer {
+        padding: 0 50px;
+    }
+}
+
+/* XS*/
+@media only screen and (max-width: 575.98px) {
+    .tabContainer {
+        padding: 0;
+    }
+}

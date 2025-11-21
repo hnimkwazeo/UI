@@ -1,0 +1,23 @@
+.dictationCard {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .title {
+        color: var(--ant-primary-color);
+        margin-bottom: 8px !important;
+    }
+
+    .description {
+        flex-grow: 1;
+        color: var(--ant-text-color-secondary);
+    }
+
+    .meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 16px;
+    }
+}

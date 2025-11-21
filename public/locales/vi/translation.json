@@ -1,0 +1,385 @@
+{
+    "common": {
+        "back": "Quay lại",
+        "yes": "Có",
+        "no": "Không",
+        "delete": "Xóa",
+        "report": "Báo cáo",
+        "endOfResults": "Bạn đã xem hết bài viết.",
+        "cancel": "Hủy",
+        "noData": "Chưa có dữ liệu",
+        "noPost": "Bạn chưa có bài viết nào",
+        "loading": "Đang tải",
+        "backToHome": "Về trang chủ"
+    },
+    "menu": {
+        "dashboard": "Bảng điều khiển",
+        "userManagement": "Quản lý Người dùng",
+        "permission": "Phân quyền"
+    },
+    "greeting": "Chào mừng, {{name}}!",
+    "sidebar": {
+        "home": "Trang chủ",
+        "notebook": "Sổ tay",
+        "vocabulary": "Từ vựng",
+        "dictionary": "Từ điển",
+        "grammar": "Ngữ pháp",
+        "blog": "Bài viết",
+        "video": "Video",
+        "community": "Cộng đồng",
+        "store": "Cửa hàng",
+        "profile": "Hồ sơ",
+        "more": "Menu",
+        "leaderboard": "Xếp hạng",
+        "logout": "Đăng xuất",
+        "dictation": "Nghe"
+    },
+    "logout": {
+        "confirmTitle": "Bạn có chắc chắn muốn đăng xuất?",
+        "success": "Đăng xuất thành công!"
+    },
+    "homepage": {
+        "vocabStatsTitle": "THỐNG KÊ TỪ VỰNG ĐÃ HỌC",
+        "wordsToReview": "Chuẩn bị ôn tập:",
+        "wordsUnit": "từ",
+        "reviewNow": "ÔN TẬP NGAY",
+        "learnNew": "HỌC TỪ MỚI",
+        "points": "Điểm",
+        "streak": "Streak",
+        "rank": "Hạng",
+        "leaderboardTitle": "BẢNG XẾP HẠNG",
+        "viewAll": "Xem tất cả",
+        "pointsUnit": "điểm",
+        "noReviewNeeded": "Tuyệt vời! Bạn đã ôn hết từ vựng rồi."
+    },
+    "leaderboard": {
+        "weeklyRanking": "BẢNG XẾP HẠNG TUẦN",
+        "days": "ngày",
+        "leagueTitle": "GIẢI ĐẤU HẠNG {{leagueName}}",
+        "description": "Top 10 tài khoản mỗi tuần sẽ được nâng lên hạng tiếp theo",
+        "timeRemaining": "Thời gian còn lại: {{time}}",
+        "rank": "Hạng",
+        "whatIsRanking": "BẢNG XẾP HẠNG LÀ GÌ?",
+        "explanation": "Học tập - Kiếm điểm - Thi đua. Kiếm thật nhiều KN từ các bài học để thi đua với những người học khác trên bảng xếp hạng hàng tuần."
+    },
+    "dictionary": {
+        "title": "Tra cứu từ điển Anh - Việt",
+        "placeholder": "Nhập từ cần tra cứu. Ví dụ: dog, cat,...",
+        "search": "Tra cứu",
+        "historyTitle": "Lịch sử tra cứu",
+        "recentTitle": "Mới thêm vào gần đây",
+        "example": "Ví dụ",
+        "notFound": "Không tìm thấy từ '{{word}}'",
+        "startSearching": "Bắt đầu tra cứu để xem kết quả",
+        "noWords": "Chưa có từ nào.",
+        "searchResults": "Kết quả tra cứu",
+        "meaningVi": "Nghĩa tiếng Việt",
+        "definitionEn": "Định nghĩa tiếng Anh",
+        "exampleVi": "Ví dụ tiếng Việt",
+        "exampleEn": "Ví dụ tiếng Anh"
+    },
+    "vocabulary": {
+        "exampleSentences": "Câu ví dụ",
+        "synonyms": "Từ đồng nghĩa",
+        "relatedWords": "Từ và cụm từ liên quan",
+        "pageTitle": "Chủ đề từ vựng",
+        "searchPlaceholder": "Tìm kiếm từ vựng trong danh mục này...",
+        "learnNewVocab": "Học từ mới",
+        "noQuizAvailable": "Hiện chưa có bài tập cho chủ đề này.",
+        "learnWithFlashcards": "Flashcard",
+        "noVocabForFlashcards": "Chưa có từ vựng để học bằng flashcard."
+    },
+    "flashcard": {
+        "title": "Ôn tập Flashcard",
+        "shuffle": "Xáo trộn",
+        "shuffled": "Đã xáo trộn bộ thẻ!",
+        "previous": "Trước",
+        "next": "Tiếp theo"
+    },
+    "notebook": {
+        "pageTitle": "Sổ tay của bạn",
+        "level": "Cấp độ",
+        "deleteConfirmTitle": "Xóa từ này?",
+        "deleteConfirmDesc": "Bạn có chắc chắn muốn xóa từ này khỏi sổ tay không?",
+        "deleteSuccess": "Đã xóa từ thành công!",
+        "addSuccess": "Đã thêm vào sổ tay!",
+        "addToNotebook": "Lưu",
+        "noVocabSelected": "Chọn một từ để xem chi tiết"
+    },
+    "grammar": {
+        "pageTitle": "Khám phá Ngữ pháp",
+        "searchPlaceholder": "Tìm kiếm chủ đề ngữ pháp...",
+        "doExercise": "Làm bài tập",
+        "noQuizAvailable": "Hiện chưa có bài tập cho chủ đề này."
+    },
+    "article": {
+        "pageTitle": "Bài viết"
+    },
+    "video": {
+        "pageTitle": "Video",
+        "subtitles": "Phụ đề",
+        "suggestedVideos": "Video gợi ý"
+    },
+    "dictation": {
+        "pageTitle": "Luyện Nghe",
+        "searchPlaceholder": "Tìm kiếm bài nghe chép...",
+        "startPractice": "Bắt đầu",
+        "practiceTab": "Luyện tập",
+        "transcriptTab": "Toàn bộ bài",
+        "slow": "Nghe chậm",
+        "inputPlaceholder": "Nhập những gì bạn nghe được...",
+        "check": "Kiểm tra",
+        "nextSentence": "Câu tiếp theo",
+        "analysisResult": "Kết quả phân tích",
+        "yourScore": "Điểm của bạn",
+        "explanations": "Giải thích",
+        "notFound": "Không tìm thấy bài nghe chép này."
+    },
+    "notifications": {
+        "title": "Thông báo",
+        "newNotification": "Thông báo mới"
+    },
+    "community": {
+        "createPostTitle": "Tạo bài viết",
+        "post": "Đăng",
+        "postPlaceholder": "Bạn đang nghĩ gì?",
+        "addPhoto": "Thêm ảnh/video",
+        "postEmptyWarning": "Nội dung bài viết không được để trống.",
+        "postCreateSuccess": "Đăng bài thành công!",
+        "deletePostSuccess": "Xóa bài viết thành công!",
+        "likes": "lượt thích",
+        "comments": "bình luận",
+        "replies": "phản hồi",
+        "like": "Thích",
+        "comment": "Bình luận",
+        "addComment": "Gửi",
+        "reply": "Trả lời",
+        "sendReply": "Gửi",
+        "replyTo": "Trả lời",
+        "deleteCommentSuccess": "Xóa bình luận thành công!",
+        "deleteCommentConfirm": "Bạn có chắc muốn xóa bình luận này?",
+        "points": "điểm",
+        "rank": "Hạng",
+        "editProfile": "Chỉnh sửa hồ sơ",
+        "connectSuggestions": "Gợi ý kết nối",
+        "viewAllSuggestions": "Xem tất cả gợi ý"
+    },
+    "profile": {
+        "changePassword": "Đổi mật khẩu",
+        "updatePassword": "Cập nhật mật khẩu",
+        "currentPassword": "Mật khẩu hiện tại",
+        "newPassword": "Mật khẩu mới",
+        "confirmNewPassword": "Xác nhận mật khẩu mới",
+        "passwordUpdateSuccess": "Cập nhật mật khẩu thành công!"
+    },
+    "store": {
+        "premiumTitle": "ĐĂNG KÝ PREMIUM",
+        "ctaButton": "XEM THÔNG TIN CHI TIẾT & NHẬN KHUYẾN MÃI",
+        "promoText": "Ưu đãi độc quyền dành cho Học sinh - Sinh viên mùa nhập học đến hết {{date}}",
+        "activateByCode": "KÍCH HOẠT BẰNG MÃ",
+        "subscriberCountTitle": "Thời gian ưu đãi gói Premium còn lại",
+        "subscriberNote": "* Nguyễn Thu Dung vừa đăng ký Premium",
+        "individualPackagesTitle": "Đăng ký gói riêng lẻ",
+        "successUpgradeMessage": "Đã kích hoạt gói Premium!",
+        "failUpgradeMessage": "Kích hoạt gói Premium thất bại",
+        "features": {
+            "noAds": "Không có quảng cáo",
+            "learnVocabulary": "Học từ vựng theo phương pháp lặp lại ngắt quảng",
+            "notebookLimit": "1500 sổ tay từ vựng & ngữ pháp chọn lọc",
+            "handbookAccess": "500 video bài học từ các nguồn uy tín",
+            "advancedSearch": "Tra cứu nâng cao từ vựng & ngữ pháp",
+            "premiumLessons": "Các bài học nâng cao dành riêng",
+            "expertExercises": "Hệ thống bài tập được soạn bởi chuyên gia",
+            "communityHighlight": "Ưu tiên xuất hiện trong Cộng đồng",
+            "aiFeatures": "Sử dụng các tính năng AI"
+        },
+        "packages": {
+            "notebookPackage": "Gói sổ tay từ vựng & ngữ pháp",
+            "noAdsPackage": "Gói quảng cáo",
+            "videoPackage": "Gói video bài học",
+            "searchPackage": "Gói tra cứu nâng cao",
+            "aiPackage": "Gói sử dụng tính năng AI",
+            "6months": "Gói 6 tháng",
+            "1year": "Gói 1 năm",
+            "lifetime": "Gói trọn đời"
+        }
+    },
+    "premium": {
+        "hero": {
+            "title": "Giỏi tiếng Anh không giới hạn cùng 4Stars Premium",
+            "subtitle": "Đăng ký gói Premium để trải nghiệm toàn bộ tính năng học tập, ôn luyện và tra cứu không giới hạn.",
+            "cta": "HỌC NGAY"
+        },
+        "featuresTitle": "Học + Ôn tập tiếng anh với hệ thống hiện đại",
+        "feature1": {
+            "title": "Học + Ôn tập",
+            "desc": "Học từ vựng, ngữ pháp và luyện tập qua các bài kiểm tra đa dạng."
+        },
+        "feature2": {
+            "title": "Tra cứu từ điển",
+            "desc": "Từ điển Anh-Việt với phát âm, ví dụ và các từ liên quan."
+        },
+        "feature3": {
+            "title": "Cộng đồng học tập",
+            "desc": "Chia sẻ kiến thức, đặt câu hỏi và tương tác với hàng ngàn người học khác."
+        },
+        "detail1": {
+            "title": "Học + Ôn tập với phương pháp hiệu quả",
+            "desc": "Phương pháp lặp lại ngắt quãng giúp bạn ghi nhớ từ vựng và ngữ pháp lâu hơn.",
+            "f1": "Nội dung được xây dựng theo lộ trình",
+            "f2": "Ôn tập được cá nhân hóa",
+            "f3": "Theo dõi được tiến độ học tập"
+        },
+        "detail2": {
+            "title": "Tra cứu nhanh và chính xác",
+            "desc": "Hệ thống từ điển và ngữ pháp được biên soạn bởi các chuyên gia ngôn ngữ hàng đầu.",
+            "f1": "Tra cứu không giới hạn",
+            "f2": "Phát âm chuẩn Anh-Mỹ",
+            "f3": "Ví dụ thực tế, dễ hiểu"
+        },
+        "detail3": {
+            "title": "Video bài học độc quyền",
+            "desc": "Nâng cao kỹ năng nghe và mở rộng vốn từ qua hàng trăm video bài học độc quyền.",
+            "f1": "Video song ngữ Anh-Việt",
+            "f2": "Chủ đề đa dạng, thực tế",
+            "f3": "Cập nhật video mới hàng tuần"
+        },
+        "detail4": {
+            "title": "Cộng đồng học tiếng Anh năng động",
+            "desc": "Tham gia cộng đồng để không bao giờ cảm thấy đơn độc trên hành trình chinh phục tiếng Anh.",
+            "f1": "Hỏi đáp cùng chuyên gia",
+            "f2": "Chia sẻ kinh nghiệm học tập",
+            "f3": "Tham gia các thử thách hàng tuần"
+        },
+        "pricing": {
+            "title": "ƯU ĐÃI GIẢM SỐC",
+            "days": "Ngày",
+            "hours": "Giờ",
+            "minutes": "Phút",
+            "seconds": "Giây",
+            "plan1": "GÓI 1 THÁNG",
+            "cta1": "DÙNG THỬ MIỄN PHÍ",
+            "plan2": "GÓI 12 THÁNG",
+            "cta2": "ĐĂNG KÝ GÓI TIẾT KIỆM",
+            "cta": "ĐĂNG KÝ NGAY"
+        }
+    },
+    "payment": {
+        "creatingSubscription": "Đang tạo giao dịch, vui lòng chờ...",
+        "creatingPaymentLink": "Đang tạo liên kết thanh toán...",
+        "redirecting": "Đang chuyển hướng đến cổng thanh toán..."
+    },
+    "quiz": {
+        "submit": "Nộp bài",
+        "processingTitle": "Đang chấm điểm bài làm của bạn...",
+        "processingSubtitle": "Kết quả sẽ được thông báo ngay khi có. Vui lòng không rời khỏi trang này.",
+        "resultTitle": "Hoàn thành bài ôn tập!",
+        "reviewAnswers": "Xem lại đáp án chi tiết",
+        "scoreResult": "Bạn đạt {{score}}/{{totalPoints}} điểm.",
+        "loadingQuestion": "Đang tải câu hỏi...",
+        "unsupportedQuestion": "Không hỗ trợ loại câu hỏi: {{type}}",
+        "correct": "Chính xác!",
+        "incorrect": "Không đúng rồi!",
+        "correctAnswerIs": "Đáp án đúng",
+        "correctAnswerAlt": "hình ảnh đáp án đúng",
+        "finish": "Hoàn thành",
+        "continue": "Tiếp tục",
+        "enterAnswerPlaceholder": "Nhập câu trả lời của bạn",
+        "checkAnswer": "Kiểm tra",
+        "enterVietnameseTranslation": "Nhập bản dịch tiếng Việt của bạn",
+        "enterEnglishTranslation": "Nhập bản dịch tiếng Anh của bạn",
+        "transcribeWhatYouHear": "Gõ lại những gì bạn nghe được...",
+        "arrangeWordsPrompt": "Chọn các từ bên dưới để tạo thành câu"
+    },
+    "login": {
+        "title": "Đăng nhập",
+        "emailPlaceholder": "Email hoặc tên người dùng",
+        "passwordPlaceholder": "Mật khẩu",
+        "forgotPassword": "Quên mật khẩu?",
+        "submit": "ĐĂNG NHẬP",
+        "or": "hoặc",
+        "continueWithGoogle": "Tiếp tục với Google",
+        "loginSuccess": "Đăng nhập thành công!",
+        "continueWithFacebook": "Tiếp tục với Facebook",
+        "dontHaveAccount": "Chưa có tài khoản?",
+        "register": "Đăng ký"
+    },
+    "register": {
+        "title": "Đăng ký",
+        "namePlaceholder": "Họ và tên",
+        "emailPlaceholder": "Email",
+        "passwordPlaceholder": "Mật khẩu",
+        "confirmPasswordPlaceholder": "Xác nhận mật khẩu",
+        "submit": "ĐĂNG KÝ",
+        "registerSuccess": "Đăng ký thành công! Vui lòng đăng nhập.",
+        "alreadyHaveAccount": "Bạn đã có tài khoản?"
+    },
+    "forgotPassword": {
+        "title": "Quên mật khẩu",
+        "step1Title": "Nhập Email",
+        "step2Title": "Xác thực & Đặt lại",
+        "step1Desc": "Chúng tôi sẽ gửi một mã OTP đến email của bạn để xác thực.",
+        "step2Desc": "Một mã OTP đã được gửi đến {{email}}. Vui lòng kiểm tra và nhập vào bên dưới.",
+        "sendOtpButton": "Gửi mã OTP",
+        "otpPlaceholder": "Mã OTP",
+        "newPasswordPlaceholder": "Mật khẩu mới",
+        "resetButton": "Đặt lại mật khẩu",
+        "backToLogin": "Quay lại trang Đăng nhập",
+        "otpSent": "Đã gửi mã OTP thành công! Vui lòng kiểm tra email.",
+        "resetSuccess": "Đặt lại mật khẩu thành công! Bạn có thể đăng nhập ngay bây giờ."
+    },
+    "validation": {
+        "passwordRequired": "Vui lòng nhập mật khẩu!",
+        "passwordsDoNotMatch": "Hai mật khẩu không khớp!",
+        "emailRequired": "Vui lòng nhập email!",
+        "emailInvalid": "Định dạng email không hợp lệ!",
+        "passwordMinLength": "Mật khẩu phải có ít nhất 8 ký tự!",
+        "nameRequired": "Vui lòng nhập họ tên!",
+        "nameMaxLength": "Họ tên không được vượt quá 100 ký tự.",
+        "confirmPasswordRequired": "Vui lòng xác nhận mật khẩu!",
+        "otpRequired": "Vui lòng nhập mã OTP!"
+    },
+    "errors": {
+        "fetchBadges": "Tải danh sách giải đấu thất bại.",
+        "fetchLeaderboard": "Tải bảng xếp hạng thất bại.",
+        "fetchRecentWords": "Tải danh sách từ mới thêm thất bại.",
+        "searchWord": "Tra cứu từ thất bại. Vui lòng thử lại.",
+        "fetchVocabularyDetail": "Tải chi tiết từ vựng thất bại.",
+        "vocabularyNotFound": "Không tìm thấy từ vựng này.",
+        "fetchDataError": "Không thể tải dữ liệu. Vui lòng thử lại.",
+        "deleteError": "Xóa từ thất bại.",
+        "addError": "Thêm vào thất bại.",
+        "fetchGrammarDetail": "Tải chi tiết bài ngữ pháp thất bại.",
+        "grammarNotFound": "Không tìm thấy bài ngữ pháp này.",
+        "fetchArticleDetail": "Tải chi tiết bài viết thất bại.",
+        "articleNotFound": "Không tìm thấy bài viết.",
+        "fetchVideoDetail": "Tải chi tiết bài video thất bại.",
+        "videoNotFound": "Không tìm thấy bài video.",
+        "fetchNotificationsError": "Tải thông báo thất bại.",
+        "markAsReadError": "Đánh dấu đã đọc thất bại.",
+        "fetchPostsError": "Tải bài viết thất bại.",
+        "postCreateError": "Tạo bài viết thất bại.",
+        "deletePostError": "Xóa bài viết thất bại.",
+        "fetchCommentsError": "Tải bình luận thất bại.",
+        "createCommentError": "Gửi bình luận thất bại.",
+        "likePostError": "Thích bài viết thất bại.",
+        "unlikePostError": "Hủy thích bài viết thất bại.",
+        "deleteCommentError": "Xóa bình luận thất bại.",
+        "fetchSuggestedUsersError": "Tải người dùng gợi ý thất bại.",
+        "passwordUpdateError": "Cập nhật mật khẩu thất bại. Vui lòng kiểm tra lại.",
+        "loginRequired": "Bạn cần đăng nhập để thực hiện chức năng này.",
+        "paymentProcessError": "Đã xảy ra lỗi trong quá trình thanh toán. Vui lòng thử lại.",
+        "noQuizData": "Không có dữ liệu bài ôn tập. Đang chuyển hướng về trang chủ.",
+        "startQuizError": "Không thể bắt đầu bài ôn tập. Vui lòng thử lại.",
+        "submitQuizError": "Nộp bài thất bại. Vui lòng thử lại.",
+        "generateQuizError": "Tạo bài ôn tập thất bại. Vui lòng thử lại.",
+        "loginFailed": "Đăng nhập thất bại. Vui lòng kiểm tra lại thông tin.",
+        "googleLoginFailed": "Đăng nhập bằng Google thất bại.",
+        "registerFailed": "Đăng ký thất bại. Email có thể đã tồn tại.",
+        "forgotPasswordError": "Gửi OTP thất bại. Vui lòng thử lại.",
+        "resetPasswordError": "Đặt lại mật khẩu thất bại. Mã OTP có thể không đúng hoặc đã hết hạn.",
+        "noFlashcardData": "Không có dữ liệu từ vựng. Đang quay lại.",
+        "logoutError": "Đăng xuất thất bại. Vui lòng thử lại.",
+        "submissionError": "Lỗi khi nộp bài. Vui lòng thử lại."
+    }
+}

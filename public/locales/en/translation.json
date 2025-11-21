@@ -1,0 +1,385 @@
+{
+    "common": {
+        "back": "Back",
+        "yes": "Yes",
+        "no": "No",
+        "delete": "Delete",
+        "report": "Report",
+        "endOfResults": "You have seen all posts.",
+        "cancel": "Cancel",
+        "noData": "No data",
+        "noPost": "You have no posts yet",
+        "loading": "Loading",
+        "backToHome": "Back to Home"
+    },
+    "menu": {
+        "dashboard": "Dashboard",
+        "userManagement": "User Management",
+        "permission": "Permission"
+    },
+    "greeting": "Welcome, {{name}}!",
+    "sidebar": {
+        "home": "Home",
+        "notebook": "Notebook",
+        "vocabulary": "Vocabulary",
+        "dictionary": "Dictionary",
+        "grammar": "Grammar",
+        "blog": "Blog",
+        "video": "Video",
+        "community": "Community",
+        "store": "Store",
+        "profile": "Profile",
+        "more": "Menu",
+        "leaderboard": "Leaderboard",
+        "logout": "Logout",
+        "dictation": "Dictation"
+    },
+    "logout": {
+        "confirmTitle": "Are you sure you want to log out?",
+        "success": "Logged out successfully!"
+    },
+    "homepage": {
+        "vocabStatsTitle": "LEARNED VOCABULARY STATISTICS",
+        "wordsToReview": "Words to review:",
+        "wordsUnit": "words",
+        "reviewNow": "REVIEW NOW",
+        "learnNew": "LEARN NEW",
+        "points": "Points",
+        "streak": "Streak",
+        "rank": "Rank",
+        "leaderboardTitle": "LEADERBOARD",
+        "viewAll": "View All",
+        "pointsUnit": "points",
+        "noReviewNeeded": "Great! You have reviewed all your words."
+    },
+    "leaderboard": {
+        "weeklyRanking": "WEEKLY RANKING",
+        "days": "days",
+        "leagueTitle": "{{leagueName}} LEAGUE TOURNAMENT",
+        "description": "Top 10 accounts each week will be promoted to the next rank",
+        "timeRemaining": "Time remaining: {{time}}",
+        "rank": "Rank",
+        "whatIsRanking": "WHAT IS THE LEADERBOARD?",
+        "explanation": "Learn - Earn points - Compete. Earn lots of XP from lessons to compete with other learners on the weekly leaderboard."
+    },
+    "dictionary": {
+        "title": "English - Vietnamese Dictionary",
+        "placeholder": "Enter a word to look up. E.g., dog, cat,...",
+        "search": "Search",
+        "historyTitle": "Search History",
+        "recentTitle": "Recently Added",
+        "example": "Example",
+        "notFound": "Word '{{word}}' not found",
+        "startSearching": "Start searching to see results",
+        "noWords": "No words yet.",
+        "searchResults": "Search Results",
+        "meaningVi": "Vietnamese Meaning",
+        "definitionEn": "English Definition",
+        "exampleVi": "Vietnamese Example",
+        "exampleEn": "English Example"
+    },
+    "vocabulary": {
+        "exampleSentences": "Example Sentences",
+        "synonyms": "Synonyms",
+        "relatedWords": "Related Words & Phrases",
+        "pageTitle": "Vocabulary topics",
+        "searchPlaceholder": "Search for vocabularies in this category...",
+        "learnNewVocab": "Learn New Vocabulary",
+        "noQuizAvailable": "No exercises are available for this topic yet.",
+        "learnWithFlashcards": "Flashcards",
+        "noVocabForFlashcards": "No vocabularies available for flashcards yet."
+    },
+    "notebook": {
+        "pageTitle": "Your Notebook",
+        "level": "Level",
+        "deleteConfirmTitle": "Delete this word?",
+        "deleteConfirmDesc": "Are you sure you want to remove this word from your notebook?",
+        "deleteSuccess": "Word removed successfully!",
+        "addSuccess": "Word added successfully!",
+        "addToNotebook": "Save",
+        "noVocabSelected": "Select a word to see details"
+    },
+    "flashcard": {
+        "title": "Flashcard Review",
+        "shuffle": "Shuffle",
+        "shuffled": "Cards have been shuffled!",
+        "previous": "Previous",
+        "next": "Next"
+    },
+    "grammar": {
+        "pageTitle": "Explore Grammar",
+        "searchPlaceholder": "Search for grammar topics...",
+        "doExercise": "Do Exercise",
+        "noQuizAvailable": "No exercises are available for this topic yet."
+    },
+    "article": {
+        "pageTitle": "Blogs"
+    },
+    "video": {
+        "pageTitle": "Video",
+        "subtitles": "Subtitles",
+        "suggestedVideos": "Suggested Videos"
+    },
+    "dictation": {
+        "pageTitle": "Dictation Practice",
+        "searchPlaceholder": "Search for a dictation...",
+        "startPractice": "Start",
+        "practiceTab": "Practice",
+        "transcriptTab": "Full Transcript",
+        "slow": "Slow",
+        "inputPlaceholder": "Type what you hear...",
+        "check": "Check",
+        "nextSentence": "Next Sentence",
+        "analysisResult": "Analysis Result",
+        "yourScore": "Your Score",
+        "explanations": "Explanations",
+        "notFound": "Dictation topic not found."
+    },
+    "notifications": {
+        "title": "Notifications",
+        "newNotification": "New notification"
+    },
+    "community": {
+        "createPostTitle": "Create Post",
+        "post": "Post",
+        "postPlaceholder": "What's on your mind?",
+        "addPhoto": "Add Photo/Video",
+        "postEmptyWarning": "Post content cannot be empty.",
+        "postCreateSuccess": "Post created successfully!",
+        "deletePostSuccess": "Post deleted successfully!",
+        "likes": "likes",
+        "comments": "comments",
+        "replies": "replies",
+        "like": "Like",
+        "comment": "Comment",
+        "addComment": "Send",
+        "reply": "Reply",
+        "sendReply": "Send",
+        "replyTo": "Replying to",
+        "deleteCommentSuccess": "Comment deleted successfully!",
+        "deleteCommentConfirm": "Are you sure you want to delete this comment?",
+        "points": "points",
+        "rank": "Rank",
+        "editProfile": "Edit Profile",
+        "connectSuggestions": "Connect Suggestions",
+        "viewAllSuggestions": "View All Suggestions"
+    },
+    "profile": {
+        "changePassword": "Change Password",
+        "updatePassword": "Update Password",
+        "currentPassword": "Current Password",
+        "newPassword": "New Password",
+        "confirmNewPassword": "Confirm New Password",
+        "passwordUpdateSuccess": "Password updated successfully!"
+    },
+    "store": {
+        "premiumTitle": "PREMIUM SUBSCRIPTION",
+        "ctaButton": "VIEW DETAILS & GET PROMOTION",
+        "promoText": "Exclusive offer for students for the new school year, valid until {{date}}",
+        "activateByCode": "ACTIVATE BY CODE",
+        "subscriberCountTitle": "Premium package promotion time remaining",
+        "subscriberNote": "* Nguyen Thu Dung just subscribed to Premium",
+        "individualPackagesTitle": "Individual Packages",
+        "successUpgradeMessage": "You have successfully subscribed to Premium!",
+        "failUpgradeMessage": "Premium subscription failed",
+        "features": {
+            "noAds": "No advertisements",
+            "learnVocabulary": "Learn vocabulary by repetition",
+            "notebookLimit": "1500 selected vocabulary & grammar notebooks",
+            "handbookAccess": "500 video lessons from reputable sources",
+            "advancedSearch": "Advanced vocabulary & grammar lookup",
+            "premiumLessons": "Exclusive advanced lessons",
+            "expertExercises": "Exercise system created by experts",
+            "communityHighlight": "Priority appearance in the Community",
+            "aiFeatures": "Access to AI features"
+        },
+        "packages": {
+            "notebookPackage": "Vocabulary & Grammar Notebook Package",
+            "noAdsPackage": "Ad-free Package",
+            "videoPackage": "Video Lessons Package",
+            "searchPackage": "Advanced Search Package",
+            "aiPackage": "AI Features Package",
+            "6months": "6 months Package",
+            "1year": "1 year Package",
+            "lifetime": "Lifetime Package"
+        }
+    },
+    "premium": {
+        "hero": {
+            "title": "Master English without Limits with 4Stars Premium",
+            "subtitle": "Subscribe to the Premium plan to experience all learning, review, and lookup features without limits.",
+            "cta": "LEARN NOW"
+        },
+        "featuresTitle": "Learn + Review English with modern systems",
+        "feature1": {
+            "title": "Learn + Review",
+            "desc": "Learn vocabulary, grammar, and practice through various tests."
+        },
+        "feature2": {
+            "title": "Dictionary Lookup",
+            "desc": "English-Vietnamese dictionary with pronunciation, examples, and related words."
+        },
+        "feature3": {
+            "title": "Learning Community",
+            "desc": "Share knowledge, ask questions, and interact with thousands of other learners."
+        },
+        "detail1": {
+            "title": "Learn + Review from effective methods",
+            "desc": "The spaced repetition method helps you remember vocabulary and grammar longer.",
+            "f1": "Content built on a roadmap",
+            "f2": "Personalized review sessions",
+            "f3": "Track your learning progress"
+        },
+        "detail2": {
+            "title": "Fast and Accurate Lookup",
+            "desc": "Our dictionary and grammar system is compiled by leading language experts.",
+            "f1": "Unlimited lookups",
+            "f2": "Standard US-UK pronunciation",
+            "f3": "Practical, easy-to-understand examples"
+        },
+        "detail3": {
+            "title": "Exclusive Video Lessons",
+            "desc": "Enhance your listening skills and expand your vocabulary with hundreds of exclusive video lessons.",
+            "f1": "Bilingual English-Vietnamese videos",
+            "f2": "Diverse, practical topics",
+            "f3": "New videos updated weekly"
+        },
+        "detail4": {
+            "title": "Dynamic English Learning Community",
+            "desc": "Join the community to never feel alone on your journey to conquer English.",
+            "f1": "Q&A with experts",
+            "f2": "Share learning experiences",
+            "f3": "Participate in weekly challenges"
+        },
+        "pricing": {
+            "title": "SHOCKING DISCOUNT",
+            "days": "Days",
+            "hours": "Hours",
+            "minutes": "Minutes",
+            "seconds": "Seconds",
+            "plan1": "1-MONTH PLAN",
+            "cta1": "START FREE TRIAL",
+            "plan2": "12-MONTH PLAN",
+            "cta2": "SUBSCRIBE & SAVE",
+            "cta": "SUBSCRIBE NOW"
+        }
+    },
+    "payment": {
+        "creatingSubscription": "Creating transaction, please wait...",
+        "creatingPaymentLink": "Creating payment link...",
+        "redirecting": "Redirecting to payment gateway..."
+    },
+    "quiz": {
+        "submit": "Submit",
+        "processingTitle": "Grading your submission...",
+        "processingSubtitle": "You will be notified once the results are ready. Please do not leave this page.",
+        "resultTitle": "Review Completed!",
+        "reviewAnswers": "Review Detailed Answers",
+        "scoreResult": "You scored {{score}}/{{totalPoints}} points.",
+        "loadingQuestion": "Loading question...",
+        "unsupportedQuestion": "Unsupported question type: {{type}}",
+        "correct": "Correct!",
+        "incorrect": "Incorrect!",
+        "correctAnswerIs": "Correct answer",
+        "correctAnswerAlt": "correct answer image",
+        "finish": "Finish",
+        "continue": "Continue",
+        "enterAnswerPlaceholder": "Enter your answer",
+        "checkAnswer": "Check",
+        "enterVietnameseTranslation": "Enter your Vietnamese translation",
+        "enterEnglishTranslation": "Enter your English translation",
+        "transcribeWhatYouHear": "Transcribe what you hear...",
+        "arrangeWordsPrompt": "Select the words below to form a sentence"
+    },
+    "login": {
+        "title": "Login",
+        "emailPlaceholder": "Email or username",
+        "passwordPlaceholder": "Password",
+        "forgotPassword": "Forgot password?",
+        "submit": "LOG IN",
+        "or": "or",
+        "continueWithGoogle": "Continue with Google",
+        "loginSuccess": "Login successful!",
+        "continueWithFacebook": "Continue with Facebook",
+        "dontHaveAccount": "Don't have an account?",
+        "register": "Register"
+    },
+    "register": {
+        "title": "Register",
+        "namePlaceholder": "Full Name",
+        "emailPlaceholder": "Email",
+        "passwordPlaceholder": "Password",
+        "confirmPasswordPlaceholder": "Confirm Password",
+        "submit": "REGISTER",
+        "registerSuccess": "Registration successful! Please log in.",
+        "alreadyHaveAccount": "Already have an account?"
+    },
+    "forgotPassword": {
+        "title": "Forgot Password",
+        "step1Title": "Enter Email",
+        "step2Title": "Verify & Reset",
+        "step1Desc": "We will send an OTP code to your email for verification.",
+        "step2Desc": "An OTP code has been sent to {{email}}. Please check and enter it below.",
+        "sendOtpButton": "Send OTP Code",
+        "otpPlaceholder": "OTP Code",
+        "newPasswordPlaceholder": "New Password",
+        "resetButton": "Reset Password",
+        "backToLogin": "Back to Login",
+        "otpSent": "OTP code sent successfully! Please check your email.",
+        "resetSuccess": "Password reset successfully! You can now log in."
+    },
+    "validation": {
+        "passwordRequired": "Please input your password!",
+        "passwordsDoNotMatch": "The two passwords do not match!",
+        "emailRequired": "Please input your email!",
+        "emailInvalid": "The email format is not valid!",
+        "passwordMinLength": "Password must be at least 8 characters!",
+        "nameRequired": "Please input your name!",
+        "nameMaxLength": "Name cannot exceed 100 characters.",
+        "confirmPasswordRequired": "Please confirm your password!",
+        "otpRequired": "Please input the OTP code!"
+    },
+    "errors": {
+        "fetchBadges": "Failed to load the list of leagues.",
+        "fetchLeaderboard": "Failed to load the leaderboard.",
+        "fetchRecentWords": "Failed to fetch recently added words.",
+        "searchWord": "Word lookup failed. Please try again.",
+        "fetchVocabularyDetail": "Failed to fetch vocabulary detail.",
+        "fetchDataError": "Could not load data. Please try again.",
+        "vocabularyNotFound": "This vocabulary could not be found.",
+        "deleteError": "Failed to delete word.",
+        "addError": "Failed to add word.",
+        "fetchGrammarDetail": "Failed to fetch grammar detail.",
+        "grammarNotFound": "This grammar topic could not be found.",
+        "fetchArticleDetail": "Failed to fetch article detail.",
+        "articleNotFound": "This article could not be found.",
+        "fetchVideoDetail": "Failed to fetch video detail.",
+        "videoNotFound": "This video could not be found.",
+        "fetchNotificationsError": "Failed to fetch notifications.",
+        "markAsReadError": "Failed to mark as read.",
+        "fetchPostsError": "Failed to fetch posts.",
+        "postCreateError": "Failed to create post.",
+        "deletePostError": "Failed to delete post.",
+        "fetchCommentsError": "Failed to fetch comments.",
+        "createCommentError": "Failed to create comment.",
+        "likePostError": "Failed to like post.",
+        "unlikePostError": "Failed to unlike post.",
+        "deleteCommentError": "Failed to delete comment.",
+        "fetchSuggestedUsersError": "Failed to fetch suggested users.",
+        "passwordUpdateError": "Failed to update password. Please check again.",
+        "loginRequired": "You need to be logged in to perform this action.",
+        "paymentProcessError": "An error occurred during the payment process. Please try again.",
+        "noQuizData": "No quiz data found. Redirecting to homepage.",
+        "startQuizError": "Could not start the quiz. Please try again.",
+        "submitQuizError": "Failed to submit quiz. Please try again.",
+        "generateQuizError": "Failed to generate quiz. Please try again.",
+        "loginFailed": "Login failed. Please check your credentials.",
+        "googleLoginFailed": "Google login failed.",
+        "registerFailed": "Registration failed. The email may already exist.",
+        "forgotPasswordError": "Failed to send OTP. Please try again.",
+        "resetPasswordError": "Failed to reset password. The OTP may be incorrect or expired.",
+        "noFlashcardData": "No vocabulary data found. Returning.",
+        "logoutError": "Logout failed. Please try again.",
+        "submissionError": "Error submitting your answer. Please try again."
+    }
+}

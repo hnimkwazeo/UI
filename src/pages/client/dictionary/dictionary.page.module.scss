@@ -1,0 +1,174 @@
+.dictionaryContainer {
+    width: 100%;
+    height: 100%;
+    padding: 24px 150px;
+
+    .pageTitle {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+
+    .dictionaryAutocomplete {
+        :global(.ant-select-dropdown) {
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    }
+
+    .contentArea {
+        margin-top: 44px;
+        min-height: 200px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .searchResultContainer {
+        width: 100%;
+    }
+
+    .resultHeader {
+        margin-bottom: 16px;
+        color: #0d47a1;
+        padding-left: 8px;
+    }
+
+    .resultCard {
+        width: 100%;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        margin-bottom: 16px;
+    }
+
+    .vocabImage {
+        border-radius: 8px;
+        object-fit: cover;
+        border: 1px solid #f0f0f0;
+    }
+
+    .wordTitle {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 8px !important;
+    }
+
+    .phonetic {
+        font-size: 1.2rem;
+        color: #555;
+        font-weight: normal;
+    }
+
+    .partOfSpeech {
+        font-size: 1rem;
+        color: #d46b08;
+        display: block;
+        margin-bottom: 12px;
+        font-style: italic;
+        font-weight: bold;
+    }
+
+    .meaningBlock,
+    .exampleBlock {
+        margin-bottom: 10px !important;
+        font-size: 1rem;
+        line-height: 1.6;
+
+        strong {
+            color: #1a237e;
+        }
+    }
+
+    .tagSection {
+        margin-top: 22px;
+        width: 100%;
+
+        h5 {
+            color: #333;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    }
+
+    .wordTag {
+        cursor: pointer;
+        margin: 4px;
+        padding: 6px 16px;
+        font-size: 1.6rem;
+        font-weight: bold;
+        border-radius: 20px;
+        transition: all 0.3s;
+        background-color: var(--ant-color-secondary, #3cbefa2f);
+        border: 1px solid transparent;
+
+
+        &:hover {
+            background-color: var(--ant-color-secondary, #3cbefa2f);
+            border: 1px solid #91d5ff;
+        }
+    }
+
+    .vocabCards {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 5px;
+    }
+
+    .quote {
+        text-align: left;
+        width: 100%;
+        gap: 0
+    }
+
+    .quoteContent {
+        font-size: 1.6rem;
+    }
+
+    .quoteTitle {
+        font-size: 1.8rem;
+    }
+}
+
+
+/* XL*/
+@media only screen and (max-width: 1599.98px) {}
+
+/* LG*/
+@media only screen and (max-width: 1199.98px) {
+    .dictionaryContainer {
+        padding: 24px 50px;
+    }
+}
+
+/* MD*/
+@media only screen and (max-width: 991.98px) {
+    .dictionaryContainer {
+        width: 100vw !important;
+        min-height: calc(100vh - 65px) !important;
+        border: none;
+        border-radius: 0 !important;
+    }
+}
+
+/* SM*/
+@media only screen and (max-width: 767.98px) {
+    .dictionaryContainer {
+        padding: 12px 0px;
+    }
+
+
+}
+
+/* XS*/
+@media only screen and (max-width: 575.98px) {
+    .pageTitle {
+        font-size: 2.4rem ! important;
+    }
+}

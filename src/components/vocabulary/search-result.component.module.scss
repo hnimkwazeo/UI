@@ -1,0 +1,96 @@
+.searchResultContainer {
+    width: 100%;
+
+    .titleNotFound,
+    a {
+        font-size: 2rem;
+    }
+}
+
+.resultList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.card {
+    border-radius: 10px;
+    border: 2px solid var(--ant-color-border-secondary, #9c9c9c);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    &:hover {
+        cursor: pointer;
+        border-color: var(--ant-color-primary, hsl(215, 94%, 69%));
+        background-color: var(--ant-color-primary, hsla(216, 100%, 85%, 0.385));
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease-in-out;
+        transform: translateY(-2px);
+    }
+
+    .row {
+        display: flex;
+    }
+
+    .vocabImage {
+        width: 80px;
+        height: 80px;
+        aspect-ratio: 1/1;
+        border-radius: 6px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .vocabInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: start;
+        margin-left: 10px;
+        width: calc(100% - 110px);
+
+        .partOfSpeech {
+            padding: 3px 8px;
+            border-radius: 10px;
+            line-height: 1;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .wordTitle {
+            font-weight: bold;
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+
+        .pronunciation {
+            color: var(--ant-color-border-secondary, #9c9c9c);
+            font-weight: 600;
+            font-size: 1.4rem;
+            margin-bottom: 0px;
+        }
+
+        .sound {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+    }
+
+    .definition {
+        font-size: 1.4rem;
+        font-weight: 500;
+        // color: var(--ant-color-secondary, #9c9c9c);
+        line-height: 1.2;
+        margin: 8px 0 0 0;
+    }
+
+}

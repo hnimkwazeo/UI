@@ -1,0 +1,325 @@
+.pageContainer {
+    height: 100%;
+}
+
+.createPostTrigger {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.triggerButton {
+    flex-grow: 1;
+    text-align: left;
+    color: var(--ant-text-color-secondary, #292929);
+    border-radius: 20px;
+
+    &:hover {
+        background-color: var(--ant-control-item-bg-active, #e6e6e6);
+    }
+}
+
+.modalHeader {
+    .userName {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: var(--ant-text-color-primary, #000);
+        margin-left: 10px;
+    }
+
+    .textArea {
+        padding: 20px 0 !important;
+    }
+}
+
+.postCard {
+    margin-bottom: 16px;
+    border-radius: 8px;
+
+    .postHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .postAuthorWrapper {
+        display: flex;
+        align-items: start;
+        gap: 12px;
+
+        .postAuthor {
+            display: inline-flex;
+            align-items: start;
+            flex-direction: column;
+
+            .postAuthorName {
+                line-height: 1;
+                font-size: 1.6rem;
+                font-weight: 600;
+            }
+
+            .postAuthorTime {
+                font-size: 1.2rem;
+                color: var(--ant-text-color-secondary, #6d6d6d);
+            }
+
+            .postDropdown {
+                margin-left: auto;
+                display: inline-block;
+            }
+        }
+    }
+
+    .postCaption {
+        white-space: pre-wrap;
+        margin: 16px 0;
+        font-size: 1.6rem;
+        line-height: 1.4;
+    }
+
+
+}
+
+
+// .attachmentsGrid {
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+//     gap: 4px;
+//     margin-top: 12px;
+
+//     :global(.ant-image) {
+//         width: 100%;
+//         height: 150px;
+
+//         :global(img) {
+//             object-fit: cover;
+//             width: 100%;
+//             height: 100%;
+//             border-radius: 4px;
+//         }
+//     }
+// }
+
+
+
+.postStats {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    color: var(--ant-text-color-secondary, #292929);
+}
+
+.postActions {
+    border-top: 1px solid var(--ant-border-color-split, #d9d9d9);
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+
+    :global(.ant-btn) {
+        width: 100%;
+        color: var(--ant-text-color-secondary, #646464);
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+}
+
+.commentSection {
+    margin-top: 16px;
+
+    .commentItem {
+        span {
+            display: flex;
+            align-items: center;
+        }
+
+        .commentAuthor {
+            gap: 8px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0 !important;
+            color: #000;
+        }
+
+        .commentDatetime {
+            font-size: 1.2rem;
+            color: var(--ant-text-color-secondary, #6d6d6d);
+        }
+
+        .deleteAction {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-left: 15px;
+        }
+
+        .replyActions {
+            margin-top: 5px;
+        }
+    }
+}
+
+
+
+.attachmentsGrid {
+    display: grid;
+    gap: 4px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    :global(.ant-image) {
+        width: 100%;
+        height: 100%;
+
+        :global(img) {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+    }
+}
+
+/* --- Các layout cụ thể --- */
+
+.attachmentsGrid[data-count="1"] {
+    display: block;
+    aspect-ratio: auto;
+    width: 100%;
+}
+
+/* 2. Layout 2 ảnh  */
+.attachmentsGrid[data-count="2"] {
+    grid-template-columns: 1fr 1fr;
+    aspect-ratio: 16 / 8;
+}
+
+/* 3. Layout 3 ảnh */
+.attachmentsGrid[data-count="3"] {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    aspect-ratio: 16 / 10;
+}
+
+.attachmentsGrid[data-count="3"]>.imageWrapper:first-child {
+    grid-row: span 2;
+}
+
+
+/* 4. Layout 4 ảnh */
+.attachmentsGrid[data-count="4"] {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    aspect-ratio: 1 / 1;
+}
+
+/* Lớp phủ */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+
+.widgetCard {
+    border-radius: 12px;
+    margin-bottom: 16px;
+    border: 1px solid var(--ant-border-color-split, #f0f0f0);
+
+    .accountHeader {
+        position: relative;
+        margin-bottom: 50px;
+    }
+
+    .coverPhoto {
+        height: 80px;
+        background: linear-gradient(to right, #4facfe, #00f2fe);
+        border-radius: 8px 8px 0 0;
+    }
+
+    .profileAvatar {
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 4px solid var(--ant-card-background, #fff);
+        background-color: var(--ant-primary-color, #1677ff);
+        font-size: 2rem !important;
+    }
+
+    .accountInfo {
+        text-align: center;
+
+        h4 {
+            margin-bottom: 0;
+        }
+    }
+
+    .stats {
+        display: flex;
+        justify-content: space-around;
+        margin: 16px 0;
+        padding: 8px 0;
+        border-top: 1px solid var(--ant-border-color-split, #f0f0f0);
+        border-bottom: 1px solid var(--ant-border-color-split, #f0f0f0);
+    }
+
+    .viewAll {
+        text-align: right;
+        margin-top: 12px;
+    }
+
+    :global(.ant-list-item) {
+        padding: 5px 0 !important;
+    }
+
+    :global(.ant-list-item-meta-title) {
+        margin-bottom: 0 !important;
+    }
+
+}
+
+
+/* XL*/
+@media only screen and (max-width: 1599.98px) {}
+
+/* LG*/
+@media only screen and (max-width: 1199.98px) {}
+
+/* MD*/
+@media only screen and (max-width: 991.98px) {
+    .pageContainer {
+        padding: 5px;
+
+        .createPostTrigger {
+            margin-bottom: 5px !important;
+        }
+
+        .postCard {
+            margin-bottom: 5px !important;
+
+            :global(.ant-card-body) {
+                padding: 10px !important;
+            }
+        }
+    }
+}
+
+/* SM*/
+@media only screen and (max-width: 767.98px) {}
+
+/* XS*/
+@media only screen and (max-width: 575.98px) {}

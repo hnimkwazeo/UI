@@ -1,0 +1,27 @@
+.grammarCard {
+    border-radius: 12px;
+    border: 1px solid var(--ant-border-color-split, #f0f0f0);
+    transition: all 0.3s ease;
+    height: 100%; // Đảm bảo các card cao bằng nhau
+
+    &:hover {
+        box-shadow: var(--ant-box-shadow-secondary);
+        transform: translateY(-5px);
+    }
+}
+
+.cardIcon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.cardTitle {
+    color: var(--ant-text-color);
+    margin-bottom: 4px !important;
+}
+
+.cardDesc {
+    color: var(--ant-text-color-secondary);
+    font-size: 14px;
+}

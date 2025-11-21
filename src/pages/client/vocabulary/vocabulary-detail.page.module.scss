@@ -1,0 +1,224 @@
+.detailContainer {
+    width: 100%;
+    height: 100%;
+    padding: 24px 150px;
+    position: relative;
+    margin: 0;
+
+    .backButton {
+        margin-bottom: 16px;
+        font-weight: 600;
+        color: #555;
+        position: relative;
+        left: -120px;
+    }
+}
+
+.vocabContainer {
+    position: relative;
+    top: -40px;
+}
+
+.vocabInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.vocabImage {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid #f0f0f0;
+    margin-bottom: 15px;
+}
+
+.posTag {
+    padding: 3px 8px;
+    border-radius: 10px;
+    line-height: 1;
+    margin-bottom: 5px;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.categoryTag {
+    padding: 5px 10px;
+    border-radius: 15px;
+    line-height: 1;
+    margin-top: 15px;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.wordTitle {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 0 !important;
+    margin-bottom: 0px !important;
+}
+
+.addToNotebookButton {
+    padding: 5px 14px;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: #fff;
+    background-color: #23AC37;
+    position: absolute;
+    top: 30px;
+    right: 0;
+
+    &:hover {
+        border: 2px solid #23AC37 !important;
+        opacity: 0.5 ! important;
+        color: #23AC37 ! important;
+    }
+}
+
+.phonetic {
+    color: var(--ant-color-border-secondary, #9c9c9c);
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+.meaning {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #0e3f88;
+    margin-top: 16px;
+    margin-bottom: 0px !important;
+}
+
+.definition {
+    font-size: 1.8rem;
+    color: #333;
+    line-height: 1.4;
+    margin-bottom: 0 !important;
+}
+
+.exampleSection {
+    margin-top: 24px;
+}
+
+.example {
+    font-size: 1.8rem;
+    margin-bottom: 4px !important;
+}
+
+.exampleItalic {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: #555;
+}
+
+.relatedSection {
+    margin-top: 32px;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 24px;
+}
+
+.tagSection {
+    margin-bottom: 24px;
+
+    h5 {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #333;
+    }
+}
+
+.wordTag {
+    cursor: pointer;
+    margin: 4px;
+    padding: 6px 16px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: all 0.3s;
+    background-color: var(--ant-color-secondary, #eeff7c42);
+    // background-color: var(--ant-color-secondary, #f2f6d6);
+    border: 1px solid transparent;
+
+
+    &:hover {
+        border: 1px solid #ebf992;
+    }
+}
+
+.synonymTag {
+    cursor: pointer;
+    margin: 4px;
+    padding: 6px 16px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: all 0.3s;
+    background-color: var(--ant-color-secondary, #3cbefa2f);
+    border: 1px solid transparent;
+
+
+    &:hover {
+        border: 1px solid #91d5ff;
+    }
+}
+
+
+/* XL*/
+@media only screen and (max-width: 1599.98px) {}
+
+/* LG*/
+@media only screen and (max-width: 1199.98px) {
+    .detailContainer {
+        padding: 24px 50px;
+        position: relative;
+
+        .backButton {
+            margin-bottom: 16px;
+            font-weight: 600;
+            color: #555;
+            position: relative;
+            left: -80px;
+            top: -30px
+        }
+    }
+}
+
+/* MD*/
+@media only screen and (max-width: 991.98px) {
+    .detailContainer {
+        width: 100vw !important;
+        min-height: calc(100vh - 65px) !important;
+        border: none;
+        border-radius: 0 !important;
+    }
+}
+
+/* SM*/
+@media only screen and (max-width: 767.98px) {
+
+    .addToNotebookButton {
+        top: 30px;
+        right: 0;
+    }
+
+    .detailContainer {
+        padding: 24px 0px;
+        position: relative;
+
+        .backButton {
+            position: relative;
+            left: -10px;
+            top: -25px
+        }
+    }
+}
+
+/* XS*/
+@media only screen and (max-width: 575.98px) {}

@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+@media only screen and (max-width: 1599.98px) {}
+
+@media only screen and (max-width: 1199.98px) {
+    html {
+        font-size: 56.25%;
+    }
+}
+
+@media only screen and (max-width: 991.98px) {}
+
+@media only screen and (max-width: 767.98px) {
+    .content {
+        padding: 16px;
+        padding-bottom: 80px;
+    }
+}
+
+@media only screen and (max-width: 575.98px) {}

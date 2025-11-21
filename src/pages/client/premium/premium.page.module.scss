@@ -1,0 +1,568 @@
+.premiumPage {
+    background-color: var(--ant-body-background, #F0F7FF);
+    background-color: var(--ant-body-background, #c9e2ff55);
+    margin: -16px !important;
+    padding: 0 !important;
+}
+
+.section {
+    padding: 50px 0;
+    margin: 0 auto;
+
+    :global(.ant-divider-horizontal.ant-divider-with-text::after) {
+        position: relative;
+        width: 50%;
+        border-block-start: 0.5rem solid var(--ant-primary-color, #1677ff) !important;
+        border-block-end: 0;
+        transform: translateY(50%);
+        content: '';
+    }
+
+    :global(.ant-divider-horizontal.ant-divider-with-text::before) {
+        position: relative;
+        width: 50%;
+        border-block-start: 0.5rem solid var(--ant-primary-color, #1677ff) !important;
+        border-block-end: 0;
+        transform: translateY(50%);
+        content: '';
+    }
+}
+
+.lightBg {
+    background-color: var(--ant-body-background, #fbfdff82);
+}
+
+.heroSection {
+    text-align: left;
+
+    .heroContent {
+        padding-left: 200px !important;
+        position: relative;
+
+        .heroLogo {
+            font-size: 5.5rem;
+            font-weight: 800;
+            color: var(--ant-primary-color, #1677ff);
+            line-height: 1;
+        }
+
+        .heroTag {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #faad14;
+            position: relative;
+            top: -4.5rem;
+            left: -2.5rem;
+        }
+
+        .heroTitle {
+            font-size: 3rem !important;
+            font-weight: 800 !important;
+            color: var(--ant-primary-color, #1677ff);
+            line-height: 1.2;
+        }
+
+        .heroSubtitle {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--ant-text-color-secondary, #646464);
+        }
+
+        .heroButton {
+            font-size: 2.5rem;
+            font-weight: 800;
+            padding: 25px 50px !important;
+            border-radius: 30px;
+        }
+    }
+
+
+
+    .heroImage {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+
+
+.featuresSection {
+    background-color: var(--ant-body-background, #fbfdff82);
+
+    .featuresTitle {
+        color: var(--ant-primary-color, #1677ff);
+        font-weight: bold;
+        margin: 0 !important;
+        line-height: 1.2;
+    }
+
+    .featuresRow {
+        padding: 0 100px;
+        margin: 30px 0;
+    }
+}
+
+.featureBlock {
+    border-radius: 16px;
+    text-align: center;
+    border: 2px solid var(--ant-border-color-split, #1677ff);
+    height: 100%;
+    margin-bottom: 10px !important;
+
+    .featureBlockIcon {
+        height: 100px;
+        width: auto;
+        margin-bottom: 16px;
+    }
+
+    .description {
+        font-size: 1.6rem;
+    }
+}
+
+
+
+.detailedFeatureSection {
+    padding-left: 100px !important;
+    padding-right: 100px !important;
+
+    .title {
+        color: var(--ant-primary-color, #1677ff);
+        font-weight: bold;
+        font-size: 2.5rem;
+    }
+
+    .description {
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 1.4;
+    }
+
+    :global(.ant-list-item) {
+        border-bottom: none !important;
+        padding: 8px 0 !important;
+        font-weight: 600;
+    }
+
+    .featureIcon {
+        margin-right: 15px;
+    }
+
+    .feature {
+        font-size: 2rem;
+        margin-left: 15px;
+    }
+}
+
+.detailedFeatureImage {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.checkIcon {
+    color: var(--ant-success-color);
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.pricingSection {
+    background: linear-gradient(180deg, #e6f7ff 0%, #ffffff 100%);
+    padding-left: 100px !important;
+    padding-right: 100px !important;
+}
+
+.pricingCard {
+    background-color: var(--ant-card-background);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.countdown {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.timeBlock {
+    text-align: center;
+}
+
+.timeValue {
+    background-color: var(--ant-primary-5, #1677ff);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 16px;
+    border-radius: 8px;
+    min-width: 70px;
+}
+
+.timeLabel {
+    margin-top: 8px;
+    color: var(--ant-text-color-secondary, #646464);
+}
+
+.plan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid var(--ant-border-color-split, #1677ff);
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.price,
+.planName {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.yellowButton {
+    background-color: var(--ant-warning-color, #faad14);
+    color: white;
+    border: none;
+    font-weight: bold;
+
+    &:hover {
+        background-color: var(--ant-warning-color-hover, #fadb14);
+        color: white;
+    }
+}
+
+.blueButton {
+    font-weight: bold;
+}
+
+
+/* XL*/
+@media only screen and (max-width: 1599.98px) {}
+
+/* LG*/
+@media only screen and (max-width: 1199.98px) {
+    .heroSection {
+        text-align: left;
+
+        .heroContent {
+            padding-left: 100px !important;
+        }
+    }
+
+    .featuresSection {
+        .featuresTitle {
+            margin: 0 !important;
+        }
+
+        .featuresRow {
+            padding: 0 50px;
+            margin: 30px 0;
+        }
+    }
+
+    .detailedFeatureSection {
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+
+        .title {
+            font-size: 2.5rem;
+        }
+
+        .description {
+            font-size: 1.8rem;
+        }
+
+        .featureIcon {
+            margin-right: 10px;
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+
+        .feature {
+            font-size: 1.8rem;
+            margin-left: 15px;
+        }
+    }
+
+    .detailedFeatureImage {
+        border-radius: 12px;
+    }
+
+
+    .pricingSection {
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+    }
+
+    .pricingCard {
+        border-radius: 20px;
+        padding: 26px;
+    }
+
+    .countdown {
+        gap: 12px;
+        margin-top: 24px;
+    }
+
+    .timeBlock {
+        text-align: center;
+    }
+
+    .timeValue {
+        font-size: 2rem;
+        padding: 16px;
+        border-radius: 8px;
+        min-width: 40px;
+    }
+
+    .timeLabel {
+        margin-top: 8px;
+    }
+
+    .plan {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+
+    .price,
+    .planName {
+        font-size: 1.6rem;
+    }
+
+}
+
+/* MD*/
+@media only screen and (max-width: 991.98px) {
+    .premiumPage {
+        margin: 0px !important;
+    }
+
+    .featuresSection {
+        .featuresTitle {
+            margin: 0 !important;
+        }
+
+        .featuresRow {
+            padding: 0 50px;
+            margin: 30px 0;
+
+        }
+    }
+
+}
+
+/* SM*/
+@media only screen and (max-width: 767.98px) {
+    .heroSection {
+        text-align: left;
+
+        .heroContent {
+            padding-left: 30px !important;
+            padding-right: 30px !important;
+        }
+
+        .heroImage {
+            display: none;
+        }
+    }
+
+    .featuresSection {
+        .featuresTitle {
+            margin: 0 !important;
+            white-space: wrap;
+            min-width: 70vw;
+        }
+
+        .featuresRow {
+            padding: 0 50px;
+            margin: 20px 0;
+            gap: 10px;
+        }
+    }
+
+    .detailedFeatureSection {
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+
+        .title {
+            font-size: 2.5rem;
+        }
+
+        .description {
+            font-size: 1.8rem;
+        }
+
+        .featureIcon {
+            margin-right: 10px;
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+
+        .feature {
+            font-size: 1.8rem;
+            margin-left: 15px;
+        }
+    }
+
+    .detailedFeatureImage {
+        border-radius: 12px;
+    }
+
+
+    .pricingSection {
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+    }
+
+    .pricingCard {
+        border-radius: 20px;
+        padding: 26px;
+    }
+
+    .pricingContent {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .countdown {
+        gap: 12px;
+        margin-top: 24px;
+    }
+
+    .timeBlock {
+        text-align: center;
+    }
+
+    .timeValue {
+        font-size: 2rem;
+        padding: 16px;
+        border-radius: 8px;
+        min-width: 40px;
+    }
+
+    .timeLabel {
+        margin-top: 8px;
+    }
+
+    .plan {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+
+    .price,
+    .planName {
+        font-size: 1.6rem;
+    }
+}
+
+/* XS*/
+@media only screen and (max-width: 575.98px) {
+    .heroSection {
+        text-align: left;
+
+        .heroContent {
+            padding-left: 30px !important;
+            padding-right: 30px !important;
+        }
+
+        .heroImage {
+            display: none;
+        }
+    }
+
+    .featuresSection {
+        .featuresTitle {
+            margin: 0 !important;
+            white-space: wrap;
+            min-width: 80vw;
+        }
+
+        .featuresRow {
+            padding: 0 10px;
+            margin: 10px 0;
+        }
+    }
+
+    .detailedFeatureSection {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+
+        .title {
+            font-size: 2.5rem;
+        }
+
+        .description {
+            font-size: 1.8rem;
+        }
+
+        .featureIcon {
+            margin-right: 10px;
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+
+        .feature {
+            font-size: 1.8rem;
+            margin-left: 15px;
+        }
+    }
+
+    .detailedFeatureImage {
+        border-radius: 12px;
+    }
+
+
+    .pricingSection {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .pricingCard {
+        border-radius: 20px;
+        padding: 20px;
+    }
+
+    .pricingContent {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pricingTitle {
+        margin-bottom: 0 !important;
+    }
+
+    .countdown {
+        gap: 12px;
+        margin-top: 24px;
+    }
+
+    .timeBlock {
+        text-align: center;
+    }
+
+    .timeValue {
+        font-size: 2rem;
+        padding: 16px;
+        border-radius: 8px;
+        min-width: 40px;
+    }
+
+    .timeLabel {
+        margin-top: 8px;
+    }
+
+    .plan {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+
+    .price,
+    .planName {
+        font-size: 1.6rem;
+    }
+}
