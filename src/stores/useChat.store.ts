@@ -2,7 +2,7 @@ import { message } from 'antd'
 import { create } from 'zustand'
 
 export type Message = {
-    role: 'user' | 'assistant'
+    role: 'user' | 'assistant' | 'error'
     content: string
 }
 
