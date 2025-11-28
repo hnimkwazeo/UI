@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Card, Progress, Button, message, Spin, Drawer, Typography } from 'antd';
-import { CheckCircleFilled, CloseCircleFilled, HeartFilled } from '@ant-design/icons';
+import { CheckCircleFilled, CloseCircleFilled, HeartFilled, RobotOutlined } from '@ant-design/icons';
+import { requestExplanation } from "@/services/chatbot.service";
 import { useTranslation } from 'react-i18next';
 import styles from './review.page.module.scss';
 import type { IQuestion, IAnswerPayload, IChoice } from 'types/quiz.type';
@@ -15,6 +16,8 @@ import TranslateViToEnQuestion from 'components/quiz/question/translate-vi-to-en
 import ListeningTranscriptionQuestion from 'components/quiz/question/listening-transcript.component';
 import ArrangeWordsQuestion from 'components/quiz/question/arrange-word.component';
 import { useMediaQuery } from 'react-responsive';
+import { useChatStore } from "stores/useChat.store";
+
 
 const { Title, Text } = Typography;
 
@@ -32,8 +35,62 @@ const ReviewPage = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [answerStatus, setAnswerStatus] = useState<'correct' | 'incorrect' | null>(null);
     const [correctAnswer, setCorrectAnswer] = useState<IChoice | string | null>(null);
+    const [isExplaining, setIsExplaining] = useState(false);
+    const { setIsOpen, addMessage } = useChatStore();
 
     const md = useMediaQuery({ maxWidth: 991.98 });
+
+    // --- HÀM XỬ LÝ GỌI AI ---
+    const handleExplainAI = async () => {
+        if (!currentQuestion) return;
+        setIsOpen(true);
+
+        setIsExplaining(true);
+        try {
+            // ... (Giữ nguyên phần logic lấy text cũ của bạn ở trên) ...
+            const userAnsObj = answers.find(a => a.questionId === currentQuestion.id);
+            let userAnsText = "";
+            if (userAnsObj) {
+                if (userAnsObj.userAnswerText) userAnsText = userAnsObj.userAnswerText; 
+                else if (userAnsObj.selectedChoiceId) {
+                    const selectedChoice = currentQuestion.choices?.find(c => c.id === userAnsObj.selectedChoiceId);
+                    userAnsText = selectedChoice?.content || "Image Choice";
+                }
+            }
+            let correctAnsText = currentQuestion.correctSentence || "";
+            if (!correctAnsText && currentQuestion.choices) {
+                const correctChoice = currentQuestion.choices.find(c => c.isCorrect);
+                correctAnsText = correctChoice?.content || "Image Choice";
+            }
+            // ... (Hết phần logic cũ) ...
+
+            // GỌI API
+            const res = await requestExplanation({
+                questionContent: currentQuestion.prompt || "Question Content",
+                userAnswer: userAnsText,
+                correctAnswer: correctAnsText,
+                explanation: "",
+                type: "QUIZ"
+            });
+
+            // XỬ LÝ KẾT QUẢ
+            // Kiểm tra an toàn: res có thể là response object hoặc data object tùy vào axios interceptor
+            if (res) {
+
+                // 2. Hiện câu trả lời
+                const replyText = res.reply || (res.data && res.data.reply);
+                if (replyText) {
+                    addMessage({ role: 'assistant', content: replyText });
+                }
+            }
+
+        } catch (error) {
+            console.error(error);
+            message.error(t('Lỗi kết nối AI'));
+        } finally {
+            setIsExplaining(false);
+        }
+    };
 
     useEffect(() => {
         if (!quizData) {
@@ -174,9 +231,41 @@ const ReviewPage = () => {
                         </div>
                     </div>
                 )}
-                <Button type="primary" size="large" onClick={handleContinue} className={styles.continueButton}>
-                    {isLastQuestion ? t('quiz.finish') : t('quiz.continue')}
-                </Button>
+
+                {/* --- BẮT ĐẦU SỬA: Thay thế nút Button cũ bằng khối div chứa 2 nút --- */}
+                <div className={styles.continueButton} style={{ display: 'flex', gap: '12px' }}>
+                    
+                    {/* Nút 1: Giải thích AI */}
+                    <Button 
+                        size="large"
+                        icon={<RobotOutlined />}
+                        loading={isExplaining} // Biến state bạn đã thêm ở bước 2
+                        onClick={handleExplainAI} // Hàm xử lý bạn đã thêm ở bước 2
+                        style={{ 
+                            flex: 1, 
+                            borderColor: '#1890ff', 
+                            color: '#1890ff',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: '5px'
+                        }}
+                    >
+                        Giải thích AI
+                    </Button>
+
+                    {/* Nút 2: Tiếp tục (Logic cũ) */}
+                    <Button 
+                        type="primary" 
+                        size="large" 
+                        onClick={handleContinue} 
+                        style={{ flex: 1 }}
+                    >
+                        {isLastQuestion ? t('quiz.finish') : t('quiz.continue')}
+                    </Button>
+                </div>
+                {/* --- KẾT THÚC SỬA --- */}
+
             </Drawer>
         </Card>
     );
