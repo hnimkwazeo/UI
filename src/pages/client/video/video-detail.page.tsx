@@ -10,12 +10,16 @@ import { parseSubtitle, type ParsedSubtitle } from 'utils/subtitle-parser';
 import SuggestedVideoCard from 'components/video/suggested-video-card.component';
 import { useMediaQuery } from 'react-responsive';
 
+// XÓA DÒNG import type { BaseReactPlayerProps } ... ĐỂ HẾT LỖI
+
 const { Title, Paragraph, Text } = Typography;
 
 const VideoDetailPage = () => {
     const { id } = useParams<{ id: string }>();
     const { t } = useTranslation();
-    const playerRef = useRef(null);
+    
+    // SỬA: Dùng <any> cho ref để tránh lỗi TypeScript "is being used as a type"
+    const playerRef = useRef<any>(null);
     const subtitleRefs = useRef(new Map());
 
     const [video, setVideo] = useState<IVideo | null>(null);
@@ -38,11 +42,20 @@ const VideoDetailPage = () => {
                     const videoData = res.data;
                     setVideo(videoData);
 
-                    // Fetch subtitle content
                     if (videoData.subtitle) {
-                        const subtitleUrl = `${import.meta.env.VITE_BACKEND_URL}${videoData.subtitle}`;
+                        let subtitleContent = "";
+                        
+                        // Logic kiểm tra URL hay JSON String
+                        const isUrl = videoData.subtitle.startsWith('http') || videoData.subtitle.startsWith('/');
+                        
                         try {
-                            const subtitleContent = await fetch(subtitleUrl).then(res => res.text());
+                            if (isUrl) {
+                                const subtitleUrl = `${import.meta.env.VITE_BACKEND_URL}${videoData.subtitle}`;
+                                subtitleContent = await fetch(subtitleUrl).then(res => res.text());
+                            } else {
+                                subtitleContent = videoData.subtitle;
+                            }
+                            
                             const parsed = parseSubtitle(subtitleContent);
                             setSubtitles(parsed);
                         } catch (err) {
@@ -56,6 +69,7 @@ const VideoDetailPage = () => {
                     }
                 }
             } catch (error) {
+                console.error(error);
                 message.error(t('errors.fetchVideoError'));
             } finally {
                 setIsLoading(false);
@@ -65,27 +79,7 @@ const VideoDetailPage = () => {
         getVideoData();
     }, [id, t]);
 
-    // Logic đồng bộ thời gian video với phụ đề
-    useEffect(() => {
-        if (playing) {
-            const interval = setInterval(() => {
-                if (playerRef.current) {
-                    // @ts-ignore
-                    // Lấy thời gian hiện tại từ ReactPlayer
-                    const currentTime = playerRef.current.getCurrentTime(); 
-                    if (typeof currentTime === 'number') {
-                        handleProgress(currentTime);
-                    }
-                }
-            }, 500);
-
-            return () => {
-                clearInterval(interval);
-            };
-        }
-    }, [playing]);
-
-    // Scroll danh sách phụ đề bên phải
+    // Scroll danh sách phụ đề
     useEffect(() => {
         if (currentSubtitle) {
             const activeSubtitleElement = subtitleRefs.current.get(currentSubtitle.id);
@@ -98,14 +92,17 @@ const VideoDetailPage = () => {
         }
     }, [currentSubtitle]);
 
-    const handleProgress = (playedSeconds: number) => {
-        // Tìm phụ đề khớp với khoảng thời gian hiện tại
+    // Hàm xử lý khi video chạy (cập nhật subtitle)
+    const handlePlayerProgress = (state: any) => {
+        const playedSeconds = state.playedSeconds;
         const activeSub = subtitles.find(sub => playedSeconds >= sub.startTime && playedSeconds <= sub.endTime);
-        setCurrentSubtitle(activeSub || null);
+        
+        if (activeSub?.id !== currentSubtitle?.id) {
+            setCurrentSubtitle(activeSub || null);
+        }
     };
 
     const handleSubtitleClick = (time: number) => {
-        // @ts-ignore
         playerRef.current?.seekTo(time, 'seconds');
         setPlaying(true);
     };
@@ -118,41 +115,39 @@ const VideoDetailPage = () => {
         return <Card>{t('errors.videoNotFound')}</Card>;
     }
 
-    // Style cho khung phụ đề nổi (Overlay)
     const subtitleOverlayStyle: React.CSSProperties = {
         position: 'absolute',
-        top: '20px',        // Cách mép trên 20px
-        right: '20px',      // Cách mép phải 20px
-        zIndex: 10,         // Nổi lên trên video
-        backgroundColor: 'rgba(0, 0, 0, 0.6)', // Nền đen bán trong suốt
+        top: '20px',       
+        right: '20px',      
+        zIndex: 10,        
+        backgroundColor: 'rgba(0, 0, 0, 0.6)', 
         padding: '12px 16px',
         borderRadius: '8px',
-        maxWidth: '40%',    // Giới hạn chiều rộng
-        textAlign: 'right', // Canh lề phải
-        color: '#fff',      // Chữ trắng
+        maxWidth: '40%',    
+        textAlign: 'right', 
+        color: '#fff',      
         backdropFilter: 'blur(4px)',
+        pointerEvents: 'none', 
     };
 
     return (
         <Row gutter={[md ? 0 : 16, md ? 0 : 16]} className={styles.pageContainer}>
-            {/* Thêm position: relative để làm điểm neo cho subtitle absolute */}
-            <Col xs={24} lg={16} style={{ position: 'relative' }}>
-                
-                {/* --- KHU VỰC HIỂN THỊ PHỤ ĐỀ OVERLAY (ĐÃ SỬA) --- */}
-                {currentSubtitle && (
-                    <div style={subtitleOverlayStyle}>
-                        <Text strong style={{ fontSize: '18px', color: '#fff', marginBottom: '4px', display: 'block' }}>
-                            {currentSubtitle.english}
-                        </Text>
-                        <Text style={{ fontSize: '14px', color: '#d9d9d9' }}>
-                            {currentSubtitle.vietnamese}
-                        </Text>
-                    </div>
-                )}
-                {/* ------------------------------------------------ */}
+            <Col xs={24} lg={16}>
+                <Card className={styles.videoCard} styles={{ body: { padding: 0, overflow: 'hidden' } }}>
+                    
+                    <div className={styles.playerWrapper} style={{ position: 'relative', paddingTop: '56.25%' }}>
+                        
+                        {currentSubtitle && (
+                            <div style={subtitleOverlayStyle}>
+                                <Text strong style={{ fontSize: '18px', color: '#fff', marginBottom: '4px', display: 'block' }}>
+                                    {currentSubtitle.english}
+                                </Text>
+                                <Text style={{ fontSize: '14px', color: '#d9d9d9' }}>
+                                    {currentSubtitle.vietnamese}
+                                </Text>
+                            </div>
+                        )}
 
-                <Card className={styles.videoCard} bodyStyle={{ padding: 0, overflow: 'hidden' }}>
-                    <div className={styles.playerWrapper} style={{ position: 'relative', paddingTop: '56.25%' /* 16:9 Aspect Ratio */ }}>
                         <ReactPlayer
                             ref={playerRef}
                             src={video.url}
@@ -161,11 +156,19 @@ const VideoDetailPage = () => {
                             width="100%"
                             height="100%"
                             controls
+                            playing={playing}
                             onPlay={() => setPlaying(true)}
                             onPause={() => setPlaying(false)}
                             onEnded={() => setPlaying(false)}
+                            
+                            // THÊM 'as any' VÀO ĐÂY:
+                            onProgress={handlePlayerProgress as any} 
+                            
+                            //@ts-ignore
+                            progressInterval={500}
                         />
                     </div>
+
                     <div className={styles.infoSection} style={{ padding: '24px' }}>
                         <Title level={3} className={styles.videoTitle}>{video.title}</Title>
                         <Paragraph>
@@ -175,36 +178,53 @@ const VideoDetailPage = () => {
                 </Card>
             </Col>
 
+
             <Col xs={24} lg={8}>
-                <Card title={t('video.subtitles')} className={styles.subtitleCard} bodyStyle={{ padding: 0, maxHeight: '600px', overflowY: 'auto' }}>
-                    <div className={styles.subtitleList}>
-                        {subtitles.map(sub => (
-                            <div key={sub.id}>
+                <Card 
+                    title={t('video.subtitles')} 
+                    className={styles.subtitleCard}
+                    // Ant Design v5 dùng styles={{ body: ... }}
+                    styles={{ body: { padding: 0 } }} 
+                >
+                    {subtitles.length > 0 ? (
+                        <div className={styles.subtitleList}>
+                            {subtitles.map((sub, index) => (
                                 <div
-                                    // @ts-ignore
-                                    ref={el => subtitleRefs.current.set(sub.id, el)}
-                                    className={`${styles.subtitleItem} ${currentSubtitle?.id === sub.id ? styles.active : ''}`}
-                                    onClick={() => handleSubtitleClick(sub.startTime)}
-                                    style={{
-                                        padding: '12px 16px',
-                                        cursor: 'pointer',
-                                        backgroundColor: currentSubtitle?.id === sub.id ? '#e6f7ff' : 'transparent',
-                                        transition: 'all 0.3s'
+                                    key={index} // Dùng index hoặc sub.id
+                                    // Gắn ref để tính năng tự động cuộn hoạt động
+                                    ref={(el) => {
+                                        if (sub.id) subtitleRefs.current.set(sub.id, el);
                                     }}
+                                    // Kiểm tra logic Active
+                                    className={`${styles.subtitleItem} ${
+                                        currentSubtitle && 
+                                        sub.startTime === currentSubtitle.startTime 
+                                        ? styles.active 
+                                        : ''
+                                    }`}
+                                    // Bấm vào thì tua video
+                                    onClick={() => handleSubtitleClick(sub.startTime)}
                                 >
-                                    <Paragraph className={styles.subTextEn} style={{ marginBottom: 4, fontWeight: 500 }}>
+                                    <div className={styles.subTextEn}>
                                         {sub.english}
-                                    </Paragraph>
-                                    <Paragraph className={styles.subTextVi} style={{ marginBottom: 0, color: '#8c8c8c' }}>
-                                        {sub.vietnamese}
-                                    </Paragraph>
+                                    </div>
+                                    {sub.vietnamese && (
+                                        <div className={styles.subTextVi}>
+                                            {sub.vietnamese}
+                                        </div>
+                                    )}
                                 </div>
-                                <Divider style={{ margin: 0 }} />
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
+                    ) : (
+                        // Hiển thị khi không có phụ đề
+                        <div style={{ padding: '20px', textAlign: 'center', color: '#999' }}>
+                            {t('video.noSubtitles', 'Chưa có phụ đề cho video này')}
+                        </div>
+                    )}
                 </Card>
 
+                {/* Phần Video gợi ý giữ nguyên */}
                 <div className={styles.suggestedSection} style={{ marginTop: '24px' }}>
                     <Title level={4}>{t('video.suggestedVideos')}</Title>
                     {suggestedVideos.map(v => <SuggestedVideoCard key={v.id} video={v} />)}
