@@ -223,8 +223,11 @@ const GrammarPage = () => {
                         cancelText="No"
                         placement="leftTop"
                     >
-                        <Button icon={<DeleteOutlined />} danger>
-                        </Button>
+                        {/* FIX 1: Giữ nguyên thẻ div bọc Button xóa này là đúng */}
+                        <div style={{ display: 'inline-block' }}>
+                            <Button icon={<DeleteOutlined />} danger>
+                            </Button>
+                        </div>
                     </Popconfirm>
                 </Space>
             ),
@@ -295,13 +298,16 @@ const GrammarPage = () => {
                         showSizeChanger: true,
                         total: meta.total
                     }}
+                    // FIX 2: Bọc nút Create bằng thẻ div để tránh lỗi findDOMNode ở Toolbar
                     toolBarRender={() => [
-                        <Button type="primary" key="primary"
-                            icon={<PlusOutlined />}
-                            onClick={() => setIsCreateModalOpen(true)}
-                        >
-                            Create
-                        </Button>,
+                        <div key="create-wrapper">
+                            <Button type="primary"
+                                icon={<PlusOutlined />}
+                                onClick={() => setIsCreateModalOpen(true)}
+                            >
+                                Create
+                            </Button>
+                        </div>,
                     ]}
                     scroll={{ x: 'max-content' }}
                     headerTitle="Grammar Management"
@@ -381,4 +387,4 @@ const GrammarPage = () => {
     )
 }
 
-export default GrammarPage
+export default GrammarPage;

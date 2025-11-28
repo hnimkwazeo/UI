@@ -114,7 +114,11 @@ const DictationDetailPage = () => {
                                 disabled={!!analysis}
                             />
                             {analysis ? (
-                                <AnalysisResult result={analysis} />
+                                <AnalysisResult 
+                                    result={analysis} 
+                                    sentenceId={currentSentence?.id} 
+                                    userText={userInput}    
+                                />
                             ) : (
                                 <Button type="primary" onClick={handleCheck} loading={isChecking} icon={<CheckOutlined />} block>
                                     {t('dictation.check')}

@@ -1,5 +1,5 @@
 import type { IBackendRes, IResponse } from "types/backend";
-import type { ICreateQuiz, IGeneratedQuiz, IQuiz, IQuizAttemptResult, IQuizAttemptStart, ISubmitPayload } from "types/quiz.type";
+import type { ICreateQuiz, IGeneratedQuiz, IQuiz, IQuizAttemptResult, IQuizAttemptStart, ISubmitPayload, IQuestion } from "types/quiz.type";
 import instance from "services/axios.customize";
 
 export const fetchQuizzesAPI = (query: string) => {
@@ -47,4 +47,28 @@ export const submitQuizAPI = (payload: ISubmitPayload) => {
 export const getQuizAttemptResultAPI = (attemptId: number) => {
     const url_backend = `/api/v1/quizzes/attempts/${attemptId}`;
     return instance.get<IResponse<IQuizAttemptResult>>(url_backend);
+}
+
+
+export const updateQuizAPI = (id: number, data: { title: string; description?: string }) => {
+    const url_backend = `/api/v1/admin/quizzes/${id}`;
+    return instance.patch<IResponse<IQuiz>>(url_backend, data);
+}
+
+// 2. Tạo câu hỏi mới
+export const createQuestionAPI = (data: any) => {
+    const url_backend = `/api/v1/admin/questions`;
+    return instance.post<IResponse<IQuestion>>(url_backend, data);
+}
+
+// 3. Cập nhật câu hỏi
+export const updateQuestionAPI = (questionId: number, data: any) => {
+    const url_backend = `/api/v1/admin/questions/${questionId}`;
+    return instance.patch<IResponse<IQuestion>>(url_backend, data);
+}
+
+// 4. Xóa câu hỏi
+export const deleteQuestionAPI = (questionId: number) => {
+    const url_backend = `/api/v1/admin/questions/${questionId}`;
+    return instance.delete<IBackendRes<any>>(url_backend);
 }

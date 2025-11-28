@@ -103,7 +103,7 @@ const CreateQuizModal = ({ open, onClose, onFinish, categoryId }: CreateQuizModa
             open={open}
             onFinish={handleFinish}
             onOpenChange={(visible) => !visible && onClose()}
-            modalProps={{ destroyOnClose: true, width: '70vw' }}
+            modalProps={{ destroyOnHidden: true, width: '70vw' }}
         >
             <ProFormText name="title" label="Quiz Title" rules={[{ required: true }]} />
             <ProFormTextArea name="description" label="Description" />
