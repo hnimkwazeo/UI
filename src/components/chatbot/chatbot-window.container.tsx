@@ -3,6 +3,8 @@ import { useChatStore, type Message } from '../../stores/useChat.store'
 import { stompService } from '../../services/stomp.service'
 import ReactMarkdown from 'react-markdown'
 import './style.scss'
+import { useRecorder } from '../../hooks/useRecorder'
+import { voiceService } from '../../services/voice.service' 
 
 type ChatbotWindowProps = {
   isVisible: boolean
@@ -13,29 +15,68 @@ export const ChatbotWindow: React.FC<ChatbotWindowProps> = ({ isVisible, onClose
   const messages = useChatStore((state) => state.messages)
   const addMessage = useChatStore((state) => state.addMessage)
   const [input, setInput] = useState('')
-  
-  // 1. Đã sửa lỗi cú pháp khai báo state
   const [isThinking, setIsThinking] = useState(false)
   
+  const isProcessingVoiceRef = useRef(false)
+  const lastProcessedBlobRef = useRef<Blob | null>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
+
+  const { isRecording, startRecording, stopRecording, audioBlob, resetRecorder } = useRecorder()
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  // 2. Logic tự động tắt 'thinking' khi có tin nhắn mới
+  useEffect(scrollToBottom, [messages, isThinking])
+
   useEffect(() => {
     const lastMessage = messages[messages.length - 1]
-    
     if (lastMessage && (lastMessage.role === 'assistant' || lastMessage.role === 'error')) {
       setIsThinking(false)
     }
-    
-    scrollToBottom()
-  }, [messages, isThinking])
+  }, [messages])
+
+  useEffect(() => {
+    const processVoice = async () => {
+      if (audioBlob && audioBlob !== lastProcessedBlobRef.current && !isProcessingVoiceRef.current) {
+        
+        isProcessingVoiceRef.current = true 
+        lastProcessedBlobRef.current = audioBlob
+        setIsThinking(true)
+        
+        try {
+          const data = await voiceService.chatWithVoice(audioBlob)
+          
+          let parsedData;
+          if (typeof data === 'string') {
+             try { parsedData = JSON.parse(data) } catch(e) { parsedData = data }
+          } else {
+             parsedData = data;
+          }
+
+          if (parsedData.user_text) {
+            addMessage({ role: 'user', content: parsedData.user_text })
+          }
+
+          if (parsedData.bot_response) {
+            addMessage({ role: 'assistant', content: parsedData.bot_response })
+          }
+
+        } catch (error) {
+          console.error(error)
+          addMessage({ role: 'error', content: "Lỗi xử lý giọng nói." })
+          setIsThinking(false)
+        } finally {
+          resetRecorder()
+          isProcessingVoiceRef.current = false 
+        }
+      }
+    }
+
+    processVoice()
+  }, [audioBlob, addMessage, resetRecorder])
 
   const handleSend = () => {
-    // 3. Chặn gửi nếu đang suy nghĩ hoặc input rỗng
     if (!input.trim() || isThinking) return
     
     const userMessage: Message = { role: 'user', content: input }
@@ -49,6 +90,16 @@ export const ChatbotWindow: React.FC<ChatbotWindowProps> = ({ isVisible, onClose
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       handleSend()
+    }
+  }
+
+  const toggleRecording = () => {
+    if (isProcessingVoiceRef.current) return; 
+
+    if (isRecording) {
+      stopRecording()
+    } else {
+      startRecording()
     }
   }
 
@@ -76,14 +127,17 @@ export const ChatbotWindow: React.FC<ChatbotWindowProps> = ({ isVisible, onClose
             </div>
           </div>
         ))}
+        
+        {isRecording && (
+             <div className="message user-message" style={{fontStyle: 'italic', opacity: 0.7}}>
+                🎤 Đang nghe...
+             </div>
+        )}
 
-        {/* 4. Hiển thị icon 3 chấm khi đang suy nghĩ */}
         {isThinking && (
           <div className="message bot-message">
             <div className="thinking-indicator">
-              <span></span>
-              <span></span>
-              <span></span>
+              <span></span><span></span><span></span>
             </div>
           </div>
         )}
@@ -94,17 +148,25 @@ export const ChatbotWindow: React.FC<ChatbotWindowProps> = ({ isVisible, onClose
       <div className="chatbot-input">
         <input
           type="text"
-          // Thay đổi placeholder khi đang chờ
-          placeholder={isThinking ? "AI đang trả lời..." : "Gửi tin nhắn..."}
+          placeholder={isThinking ? "AI đang trả lời..." : "Nhập tin nhắn..."}
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyPress={handleKeyPress}
-          disabled={isThinking} // 5. Khóa ô nhập liệu
+          disabled={isThinking || isRecording}
         />
+        
+        <button 
+            className={`mic-btn ${isRecording ? "recording" : ""}`}
+            onClick={toggleRecording}
+            disabled={isThinking}
+            title="Nói chuyện"
+        >
+            {isRecording ? "⏹" : "🎤"} 
+        </button>
+
         <button 
             onClick={handleSend} 
-            // 6. Khóa nút gửi
-            disabled={isThinking || !input.trim()} 
+            disabled={isThinking || !input.trim() || isRecording} 
             className={isThinking ? "disabled" : ""}
         >
             Gửi

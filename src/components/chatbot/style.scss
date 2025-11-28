@@ -1,5 +1,3 @@
-/* src/components/Chatbot/style.scss */
-
 /* =========================================
    GLOBAL STYLES
    ========================================= */
@@ -56,8 +54,8 @@ body {
   height: 500px;
   border-radius: 20px;
 
-  /* Hiệu ứng kính (Glassmorphism) */
-  background-color: rgba(255, 255, 255, 0.9); 
+  /* Hiệu ứng kính */
+  background-color: rgba(255, 255, 255, 0.95); 
   border: 1px solid rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
@@ -144,7 +142,7 @@ body {
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
       font-size: 0.95em;
       
-      /* STYLE CHO MARKDOWN (Quan trọng) */
+      /* STYLE CHO MARKDOWN */
       .message-content {
         line-height: 1.5;
         
@@ -163,7 +161,6 @@ body {
           font-weight: 700;
         }
 
-        /* Code block */
         pre {
           background: rgba(0,0,0,0.05);
           padding: 8px;
@@ -230,29 +227,29 @@ body {
     padding: 10px 15px;
     background-color: #ffffff;
     border-top: 1px solid #eee;
+    align-items: center; /* Căn giữa dọc */
+    gap: 8px; /* Khoảng cách giữa input và các nút */
 
     input[type="text"] {
       flex-grow: 1;
       padding: 10px 15px;
       border: 1px solid #ddd;
       border-radius: 20px;
-      margin-right: 10px;
       background-color: #f9f9f9;
       outline: none;
       color: #333;
       font-size: 0.95em;
       transition: all 0.2s;
+      margin-right: 0; 
 
       &:focus {
         background-color: #ffffff;
         border-color: #1677ff;
       }
       
-      /* Khi bị khóa (disabled) */
       &:disabled {
         background-color: #e9ecef;
         cursor: not-allowed;
-        color: #999;
       }
 
       &::placeholder {
@@ -260,23 +257,27 @@ body {
       }
     }
 
+    /* Style chung cho nút */
     button {
       background: #1677ff;
       color: white;
       border: none;
-      padding: 0 20px;
+      padding: 0 15px;
+      height: 40px; /* Cố định chiều cao */
       border-radius: 20px;
       cursor: pointer;
-      transition: background-color 0.2s ease, transform 0.2s ease;
+      transition: all 0.2s ease;
       font-size: 1em;
       font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       &:hover {
         background-color: #1367e0;
         transform: translateY(-1px);
       }
       
-      /* Khi bị khóa (disabled) */
       &:disabled, &.disabled {
         background-color: #ccc;
         cursor: not-allowed;
@@ -287,5 +288,38 @@ body {
         }
       }
     }
+
+    /* --- STYLE RIÊNG CHO NÚT MICRO --- */
+    .mic-btn {
+        padding: 0;      
+        width: 40px;     
+        border-radius: 50%; 
+        font-size: 1.2em;
+        background-color: #f0f0f0; 
+        color: #555;
+
+        &:hover {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+        /* Trạng thái Đang ghi âm */
+        &.recording {
+            background-color: #ff4d4f; 
+            color: white;
+            animation: pulse-red 1.5s infinite;
+            
+            &:hover {
+                background-color: #d9363e;
+            }
+        }
+    }
   }
+}
+
+/* --- HIỆU ỨNG NHỊP ĐẬP (Pulse) --- */
+@keyframes pulse-red {
+    0% { box-shadow: 0 0 0 0 rgba(255, 77, 79, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 77, 79, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 77, 79, 0); }
 }
