@@ -92,7 +92,7 @@ Dự án này không chỉ là một trang web thông thường mà còn là nơ
 
 Đây là project backend, là trái tim của một hệ sinh thái gồm 3 phần:
 
-* **Backend:** https://github.com/hnimkwazeo/BTL-OOP---Xay-dung-he-thong-hoc-tieng-anh-tich-hop-AI.git - Xây dựng bằng Spring Boot, chịu trách nhiệm xử lý toàn bộ logic nghiệp vụ, quản lý dữ liệu và bảo mật.
+* **Backend:** (https://github.com/hnimkwazeo/be) - Xây dựng bằng Spring Boot, chịu trách nhiệm xử lý toàn bộ logic nghiệp vụ, quản lý dữ liệu và bảo mật.
 * **Frontend:**  - Xây dựng bằng React/Vite, cung cấp giao diện người dùng hiện đại, tương tác cao.
 * **AI Service:** https://github.com/hnimkwazeo/AI.git - Xây dựng bằng Python/FastAPI, chứa mô hình NLP tự train để phục vụ tính năng phân tích chính tả.
 
