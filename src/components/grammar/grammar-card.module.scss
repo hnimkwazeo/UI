@@ -2,7 +2,7 @@
     border-radius: 12px;
     border: 1px solid var(--ant-border-color-split, #f0f0f0);
     transition: all 0.3s ease;
-    height: 100%; // Đảm bảo các card cao bằng nhau
+    height: 100%; 
 
     &:hover {
         box-shadow: var(--ant-box-shadow-secondary);

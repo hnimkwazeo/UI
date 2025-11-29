@@ -26,12 +26,10 @@ const ClientLayout = () => {
     const { accessToken, isAuthenticated } = useAuthStore();
 
     useEffect(() => {
-        // Chỉ kết nối khi user đã đăng nhập và có token
         if (isAuthenticated && accessToken) {
             console.log("Connecting STOMP service...");
             stompService.connect(accessToken);
 
-            // Trả về một hàm cleanup để ngắt kết nối khi layout bị unmount (ví dụ: khi logout)
             return () => {
                 console.log("Disconnecting STOMP service...");
                 stompService.disconnect();

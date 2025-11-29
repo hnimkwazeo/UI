@@ -155,9 +155,6 @@ const CreateVideoModal = ({ open, onClose, onFinish, categoryId }: CreateVideoMo
 
                 <ProFormText name="subtitle" hidden />
 
-                {/* <ProFormTextArea name="description" label="Description"
-                    rules={[{ required: true, message: 'Please enter description!' }]} /> */}
-
                 <Form.Item
                     label="Description"
                     name="description"
