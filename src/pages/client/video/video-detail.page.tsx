@@ -10,7 +10,6 @@ import { parseSubtitle, type ParsedSubtitle } from 'utils/subtitle-parser';
 import SuggestedVideoCard from 'components/video/suggested-video-card.component';
 import { useMediaQuery } from 'react-responsive';
 
-// XÓA DÒNG import type { BaseReactPlayerProps } ... ĐỂ HẾT LỖI
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -18,7 +17,6 @@ const VideoDetailPage = () => {
     const { id } = useParams<{ id: string }>();
     const { t } = useTranslation();
     
-    // SỬA: Dùng <any> cho ref để tránh lỗi TypeScript "is being used as a type"
     const playerRef = useRef<any>(null);
     const subtitleRefs = useRef(new Map());
 
@@ -45,7 +43,6 @@ const VideoDetailPage = () => {
                     if (videoData.subtitle) {
                         let subtitleContent = "";
                         
-                        // Logic kiểm tra URL hay JSON String
                         const isUrl = videoData.subtitle.startsWith('http') || videoData.subtitle.startsWith('/');
                         
                         try {
@@ -79,7 +76,6 @@ const VideoDetailPage = () => {
         getVideoData();
     }, [id, t]);
 
-    // Scroll danh sách phụ đề
     useEffect(() => {
         if (currentSubtitle) {
             const activeSubtitleElement = subtitleRefs.current.get(currentSubtitle.id);
@@ -92,7 +88,6 @@ const VideoDetailPage = () => {
         }
     }, [currentSubtitle]);
 
-    // Hàm xử lý khi video chạy (cập nhật subtitle)
     const handlePlayerProgress = (state: any) => {
         const playedSeconds = state.playedSeconds;
         const activeSub = subtitles.find(sub => playedSeconds >= sub.startTime && playedSeconds <= sub.endTime);
@@ -161,7 +156,6 @@ const VideoDetailPage = () => {
                             onPause={() => setPlaying(false)}
                             onEnded={() => setPlaying(false)}
                             
-                            // THÊM 'as any' VÀO ĐÂY:
                             onProgress={handlePlayerProgress as any} 
                             
                             //@ts-ignore
@@ -183,26 +177,22 @@ const VideoDetailPage = () => {
                 <Card 
                     title={t('video.subtitles')} 
                     className={styles.subtitleCard}
-                    // Ant Design v5 dùng styles={{ body: ... }}
                     styles={{ body: { padding: 0 } }} 
                 >
                     {subtitles.length > 0 ? (
                         <div className={styles.subtitleList}>
                             {subtitles.map((sub, index) => (
                                 <div
-                                    key={index} // Dùng index hoặc sub.id
-                                    // Gắn ref để tính năng tự động cuộn hoạt động
+                                    key={index} 
                                     ref={(el) => {
                                         if (sub.id) subtitleRefs.current.set(sub.id, el);
                                     }}
-                                    // Kiểm tra logic Active
                                     className={`${styles.subtitleItem} ${
                                         currentSubtitle && 
                                         sub.startTime === currentSubtitle.startTime 
                                         ? styles.active 
                                         : ''
                                     }`}
-                                    // Bấm vào thì tua video
                                     onClick={() => handleSubtitleClick(sub.startTime)}
                                 >
                                     <div className={styles.subTextEn}>
@@ -217,7 +207,6 @@ const VideoDetailPage = () => {
                             ))}
                         </div>
                     ) : (
-                        // Hiển thị khi không có phụ đề
                         <div style={{ padding: '20px', textAlign: 'center', color: '#999' }}>
                             {t('video.noSubtitles', 'Chưa có phụ đề cho video này')}
                         </div>

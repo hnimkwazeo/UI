@@ -22,8 +22,6 @@ export const createQuizAPI = (data: ICreateQuiz) => {
     return instance.post<IResponse<IQuiz>>(url_backend, data);
 }
 
-// review vocabulary 
-
 export const fetchQuizzesClientAPI = (categoryId: number) => {
     const url_backend = `/api/v1/quizzes?size=100&categoryId=${categoryId}`;
     return instance.get<IBackendRes<IQuiz[]>>(url_backend);
@@ -55,19 +53,16 @@ export const updateQuizAPI = (id: number, data: { title: string; description?: s
     return instance.patch<IResponse<IQuiz>>(url_backend, data);
 }
 
-// 2. Tạo câu hỏi mới
 export const createQuestionAPI = (data: any) => {
     const url_backend = `/api/v1/admin/questions`;
     return instance.post<IResponse<IQuestion>>(url_backend, data);
 }
 
-// 3. Cập nhật câu hỏi
 export const updateQuestionAPI = (questionId: number, data: any) => {
     const url_backend = `/api/v1/admin/questions/${questionId}`;
     return instance.patch<IResponse<IQuestion>>(url_backend, data);
 }
 
-// 4. Xóa câu hỏi
 export const deleteQuestionAPI = (questionId: number) => {
     const url_backend = `/api/v1/admin/questions/${questionId}`;
     return instance.delete<IBackendRes<any>>(url_backend);

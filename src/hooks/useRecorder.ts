@@ -10,7 +10,7 @@ export const useRecorder = () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       mediaRecorderRef.current = new MediaRecorder(stream);
-      chunksRef.current = []; // Reset bộ nhớ đệm
+      chunksRef.current = []; 
 
       mediaRecorderRef.current.ondataavailable = (e) => {
         if (e.data.size > 0) {
@@ -19,12 +19,10 @@ export const useRecorder = () => {
       };
 
       mediaRecorderRef.current.onstop = () => {
-        // Tạo file audio dạng webm (nhẹ và phổ biến)
         const blob = new Blob(chunksRef.current, { type: "audio/webm" });
         setAudioBlob(blob);
         chunksRef.current = [];
         
-        // Tắt Micro sau khi ghi âm xong
         stream.getTracks().forEach((track) => track.stop());
       };
 
@@ -43,7 +41,6 @@ export const useRecorder = () => {
     }
   };
 
-  // Hàm này quan trọng: Để xóa file cũ sau khi đã gửi đi
   const resetRecorder = () => {
     setAudioBlob(null);
   };

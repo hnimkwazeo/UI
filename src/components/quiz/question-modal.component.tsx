@@ -86,7 +86,6 @@ const QuestionModal = ({ open, onClose, onFinish, initialValues, quizId }: Quest
                 const submitData = { ...values, quizId };
                 return onFinish(submitData);
             }}
-            // Reset form khi đóng/mở hoặc thay đổi initialValues
             initialValues={initialValues || { questionType: 'MULTIPLE_CHOICE_TEXT', points: 1 }}
             modalProps={{ destroyOnHidden: true, width: '60vw' }}
         >
@@ -104,7 +103,7 @@ const QuestionModal = ({ open, onClose, onFinish, initialValues, quizId }: Quest
                     { label: 'Arrange Words', value: 'ARRANGE_WORDS' },
                 ]}
                 rules={[{ required: true }]}
-                disabled={!!initialValues} // Không cho sửa loại câu hỏi khi đang Edit
+                disabled={!!initialValues} 
             />
 
             <ProFormTextArea name="prompt" label="Question Prompt" rules={[{ required: true }]} />
